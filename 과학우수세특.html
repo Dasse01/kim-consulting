@@ -1,0 +1,259 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>과학(공통/통합) · 우수 세특 분석 프로그램</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet"/><style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F7F4F4;--card:#FFFFFF;--card-alt:#FAF8F8;--border:#DED4D4;--border-light:#EEE8E8;--text:#2E1A1A;--sub:#604848;--muted:#907070;--accent:#B54040;--accent-hover:#9A3232;--accent-bg:#FDECEC;--accent-border:#E8AAAA;--green:#2A7B4F;--green-bg:#EBF5F0;--green-border:#B0D8C2;--orange:#B87A2E;--orange-bg:#FDF5EB;--orange-border:#EECFA0;--blue:#2E5CB8;--blue-bg:#EBF0FA;--blue-border:#A8B8E0;--tag-학업:#B54040;--tag-진로:#2E5CB8;--tag-공동체:#B87A2E;--shadow-sm:0 1px 2px rgba(46,26,26,.04);--shadow:0 1px 3px rgba(46,26,26,.06),0 6px 16px rgba(46,26,26,.04);--r:14px;--r-sm:10px;--r-xs:7px}
+html{scroll-behavior:smooth;font-family:'Noto Sans KR',sans-serif}body{background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+@media print{.no-print{display:none!important}body{background:#fff!important}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}.layout{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:24px 0 48px}@media(max-width:860px){.layout{grid-template-columns:1fr}.sidebar{display:none}}
+.topbar{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{display:flex;align-items:center;gap:11px}.logo-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#D45050,#B54040);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}.logo small{font-size:11.5px;color:var(--muted)}.logo strong{font-size:14.5px;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r-xs);font-size:12.5px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;transition:all .15s}.btn:hover{background:#F0E8E8}.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-accent:hover{background:var(--accent-hover)}.btn-sm{padding:5px 11px;font-size:11.5px}
+.sidebar{position:sticky;top:68px;height:fit-content}.side-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-sm)}.side-label{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}.side-nav a{display:block;padding:7px 11px;border-radius:var(--r-xs);font-size:12.5px;color:var(--sub);text-decoration:none;transition:all .12s;margin-bottom:1px}.side-nav a:hover,.side-nav a.on{background:var(--accent-bg);color:var(--accent)}.side-meta{margin-top:14px;padding:13px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm);font-size:12px;color:var(--sub);line-height:1.7}.side-meta b{color:var(--text)}
+.sec{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm);margin-bottom:20px}.sec h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:4px}.sec h2 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;flex-shrink:0}.sec-sub{font-size:13px;color:var(--sub);margin-bottom:16px}
+.hero{background:linear-gradient(135deg,#F8F0F0,#F0DEDE 60%,#E8D0D0);border:1px solid #D8B8B8;border-radius:18px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(181,64,64,.08),transparent 70%);border-radius:50%}.hero-tag{display:inline-flex;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(181,64,64,.1);border:1px solid rgba(181,64,64,.18);color:var(--accent);margin-bottom:14px}.hero h1{font-family:'Nanum Myeongjo',serif;font-size:26px;font-weight:800;line-height:1.4;color:#2A1414}@media(max-width:640px){.hero h1{font-size:21px}}.hero p{margin-top:10px;font-size:13.5px;color:var(--sub);max-width:620px;line-height:1.85}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px;position:relative;z-index:1}@media(max-width:640px){.hero-grid{grid-template-columns:repeat(2,1fr)}}.hero-card{background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.7);border-radius:var(--r-sm);padding:13px}.hero-card .lbl{font-size:10.5px;color:var(--muted);font-weight:600}.hero-card .val{font-size:13.5px;font-weight:700;margin-top:3px}.hero-card .dsc{font-size:10.5px;color:var(--sub);margin-top:4px}
+.badge{display:inline-flex;padding:3px 9px;border-radius:16px;font-size:10.5px;font-weight:600}.b-accent{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border)}.b-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}.b-orange{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}.b-red{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border)}.b-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.tag{display:inline-flex;padding:2px 7px;border-radius:5px;font-size:10.5px;font-weight:600}.t-학업{background:var(--accent-bg);color:var(--accent)}.t-진로{background:var(--blue-bg);color:var(--blue)}.t-공동체{background:var(--orange-bg);color:var(--orange)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm);margin-top:12px}table{width:100%;border-collapse:collapse;font-size:12.5px}th{background:#F5EDED;padding:9px 13px;text-align:left;font-weight:700;font-size:11.5px;color:var(--sub);border-bottom:2px solid var(--border)}td{padding:9px 13px;border-bottom:1px solid var(--border-light);vertical-align:top}tr:last-child td{border-bottom:none}
+.cg{display:grid;gap:12px;margin-top:14px}.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}@media(max-width:700px){.c2,.c3,.c4{grid-template-columns:1fr}}
+.cd{background:var(--card-alt);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;transition:box-shadow .2s}.cd:hover{box-shadow:var(--shadow)}.cd-title{font-size:13.5px;font-weight:700;margin-bottom:8px}
+.co{padding:14px 18px;border-radius:var(--r-sm);margin-top:14px;font-size:12.5px;line-height:1.8}.co-accent{background:var(--accent-bg);border:1px solid var(--accent-border);color:#4A1818}.co-green{background:var(--green-bg);border:1px solid var(--green-border);color:#1A5A35}.co b{font-weight:700}
+.cv-row{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:12px}.cv-lbl{width:100px;font-weight:600;color:var(--sub);flex-shrink:0}.cv-bar{flex:1;height:9px;background:#EEE8E8;border-radius:5px;overflow:hidden}.cv-fill{height:100%;border-radius:5px;transition:width .5s ease}.cv-val{width:36px;text-align:right;font-weight:700;font-size:11px}
+.fi{width:100%;padding:9px 13px;border:1px solid var(--border);border-radius:var(--r-xs);font-size:12.5px;font-family:inherit;background:var(--card);outline:none;transition:border .15s}.fi:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(181,64,64,.1)}.fi::placeholder{color:var(--muted)}textarea.fi{resize:vertical;min-height:90px;line-height:1.8}.fld{margin-bottom:12px}.fld-lbl{display:block;font-size:11.5px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.meter-g{display:flex;gap:8px;margin-top:8px}.meter-g>div{flex:1;text-align:center}.meter-lbl{font-size:10px;font-weight:700;margin-bottom:3px}.meter{height:7px;border-radius:4px;background:#EEE8E8;overflow:hidden}.meter-fill{height:100%;border-radius:4px;transition:width .4s}
+.iq{background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm);padding:13px;margin-top:7px}.iq .ql{font-size:10.5px;font-weight:700;color:var(--accent)}.iq .qt{font-size:12.5px;margin-top:3px;font-weight:500}
+.chk-g{display:flex;flex-direction:column;gap:7px;margin-top:10px}.chk{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--sub);cursor:pointer}.chk input{width:17px;height:17px;accent-color:var(--accent);margin-top:2px;flex-shrink:0;cursor:pointer}.chk.on{color:var(--text);font-weight:500}
+.pre-box{white-space:pre-wrap;word-break:keep-all;font-size:12.5px;line-height:1.7;color:var(--text);background:var(--card-alt);border:1px solid var(--border-light);padding:14px;border-radius:var(--r-sm)}
+.gc{display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:11px}.gc>div{padding:6px 8px;border-radius:var(--r-xs);background:#EEE8E8;color:var(--muted);transition:all .2s}.gc>div.ok{background:var(--green-bg);color:var(--green)}
+.back{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;border-radius:var(--r-xs);transition:all .12s;margin:10px 0}.back:hover{background:var(--accent-bg);color:var(--accent)}
+.footer{text-align:center;padding:28px 20px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border)}.footer b{color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(6px);background:var(--text);color:#fff;padding:9px 18px;border-radius:20px;font-size:12.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:200}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style></head><body>
+
+<div class="topbar"><div class="wrap"><div class="topbar-inner"><div class="logo"><div class="logo-icon">科</div><div><small>학생부 과목별 우수세특사례 분석 프로그램</small><strong>과학(공통/통합) · 우수 세특 분석</strong></div></div><div class="no-print" style="display:flex;gap:6px"><button class="btn btn-sm" id="btnCopySummary">요약 복사</button><button class="btn btn-accent btn-sm" onclick="window.print()">인쇄 / PDF</button></div></div></div></div>
+
+<div class="wrap"><a id="backToMain" class="back no-print" href="../index.html#subjects">← 메인으로</a><div class="layout">
+
+<aside class="sidebar no-print"><div class="side-box"><div class="side-label">빠른 이동</div><nav class="side-nav" id="sideNav"><a href="#sec-intro">프로그램 개요</a><a href="#sec-overview">자료 개요</a><a href="#sec-students">A·B·C 원문</a><a href="#sec-compare">비교분석</a><a href="#sec-logic">변환 6단계</a><a href="#sec-strategy">실전 전략</a><a href="#sec-eval">평가기준 연결 ✦</a><a href="#sec-gen">세특 생성기</a><a href="#sec-interview">면접 질문 ✦</a><a href="#sec-check">체크리스트</a></nav><div class="side-meta"><b>과학(공통/통합)</b><br/>A·B·C 3명(최상/상/중)<br/>권장 250~320자<br/>핵심: 가설-검증+데이터</div></div></aside>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="sec-intro">
+<div class="hero-tag">🔬 과학 세특 · 가설→검증→데이터→오차</div>
+<h1>과학 세특은<br>"실험했다"가 0점,<br>"통제하고 측정해 해석했다"가 100점</h1>
+<p>A·B·C 3명 원문 비교, <b>탐구 변환 6단계</b>, <b>107개 항목 연결</b>, <b>면접 질문 생성</b>까지 통합합니다.</p>
+<div class="hero-grid">
+<div class="hero-card"><div class="lbl">결정타 1</div><div class="val">정량 데이터</div><div class="dsc">수치·단위·반복 측정</div></div>
+<div class="hero-card"><div class="lbl">결정타 2</div><div class="val">변인 통제</div><div class="dsc">독립·종속·통제 구분</div></div>
+<div class="hero-card"><div class="lbl">결정타 3</div><div class="val">오차→개선</div><div class="dsc">원인 분석+개선안</div></div>
+<div class="hero-card"><div class="lbl">NEW <span class="badge b-red" style="font-size:9px;padding:1px 6px">✦</span></div><div class="val">10개 지표 중 6개 '강'</div><div class="dsc">5과목 중 최고 커버리지</div></div>
+</div></section>
+
+<!-- 1 개요 -->
+<section class="sec" id="sec-overview">
+<h2><span class="n">1</span> 자료 개요</h2>
+<p class="sec-sub">과학 세특 = "탐구의 절차를 얼마나 과학적으로 수행했는가"를 문장으로 압축하는 작업</p>
+<div class="tw"><table>
+<thead><tr><th>평가 요소</th><th>상위권 표현</th><th>하위권 표현</th></tr></thead>
+<tbody>
+<tr><td><b>문제정의</b></td><td>"변인을 특정하고 조건을 설정함"</td><td>"관심이 생겨 조사함"</td></tr>
+<tr><td><b>가설</b></td><td>"~일수록 ~할 것이다(검증 가능)"</td><td>"~일 것 같다"</td></tr>
+<tr><td><b>변인통제</b></td><td>"독립·종속·통제 변인을 구분"</td><td>"실험을 진행함"</td></tr>
+<tr><td><b>데이터</b></td><td>"반복 측정·평균·편차(정량)"</td><td>"결과를 확인함"</td></tr>
+<tr><td><b>해석/오차</b></td><td>"오차 원인/한계/개선안 제시"</td><td>"재미있었다"</td></tr>
+</tbody></table></div>
+<div class="cg c2">
+<div class="cd"><div class="cd-title">과학 세특 "급"을 올리는 4요소</div><p style="font-size:12.5px;color:var(--sub);line-height:2">① <b>수치/단위</b>가 들어간다<br/>② <b>반복 측정</b> 또는 <b>대조군</b>이 있다<br/>③ <b>오차 분석</b>(원인·개선)이 있다<br/>④ <b>확장</b>(추가 실험/실생활 적용)</p></div>
+<div class="cd"><div class="cd-title">컨설팅 한 줄 규칙</div><p style="font-size:12.5px;color:var(--sub)">"실험했다"는 0점. <b>"통제하고 측정해 해석했다"</b>가 100점.</p><div class="co co-accent" style="font-size:11.5px"><b>핵심 공식:</b> 탐구역량(가설-검증) × 데이터역량(정량·그래프) × 태도(정교함·성실함의 <b>증거</b>)</div></div>
+</div></section>
+
+<!-- 2 원문 -->
+<section class="sec" id="sec-students">
+<h2><span class="n">2</span> A·B·C 세특 원문</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+<div style="flex:1;min-width:140px" class="fld"><label class="fld-lbl">학생</label><select id="stuSel" class="fi"><option value="A">학생 A — 최상위 (정량·통제·오차)</option><option value="B">학생 B — 상위 (가설·데이터)</option><option value="C">학생 C — 중위 (활동 중심)</option></select></div>
+<div style="flex:0 0 auto;align-self:flex-end;padding-bottom:12px" class="no-print"><button class="btn btn-sm" id="btnCopyEx">원문 복사</button></div>
+</div>
+<div id="stuMeta" style="font-size:12px;color:var(--muted);margin-bottom:8px"></div>
+<div class="pre-box" id="stuText" style="min-height:100px"></div>
+<div class="cg c2" style="margin-top:12px">
+<div class="cd"><div class="cd-title">나쁜 예 → 좋은 예</div><div style="font-size:12.5px;color:var(--sub)"><span style="color:var(--accent)">✗</span> "실험에 적극적으로 참여하고 결과를 확인함"<br/><span style="color:var(--green)">✓</span> "조건을 통제하고 농도별 시간을 5회 측정해 평균 산출, 그래프로 경향을 해석함"</div></div>
+<div class="cd"><div class="cd-title">절대 넣으면 좋은 문장 조각</div><div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px"><span class="badge b-accent">반복 측정(3~5회)</span><span class="badge b-accent">평균·편차</span><span class="badge b-accent">그래프 시각화</span><span class="badge b-accent">대조군/통제변인</span><span class="badge b-accent">오차 원인</span><span class="badge b-accent">개선안</span><span class="badge b-accent">추가 실험</span></div></div>
+</div></section>
+
+<!-- 3 비교분석 -->
+<section class="sec" id="sec-compare">
+<h2><span class="n">3</span> 비교분석 포인트</h2>
+<div class="tw"><table>
+<thead><tr><th>요소</th><th>A (최상)</th><th>B (상)</th><th>C (중)</th></tr></thead>
+<tbody>
+<tr><td><b>가설</b></td><td>명확(검증 가능)</td><td>명확</td><td>없음</td></tr>
+<tr><td><b>변인통제</b></td><td>독립·종속·통제 구분</td><td>조건 동일(부분)</td><td>언급 없음</td></tr>
+<tr><td><b>정량 데이터</b></td><td>반복 측정+평균/편차</td><td>반복 측정+표</td><td>관찰 중심</td></tr>
+<tr><td><b>해석/오차</b></td><td>오차 분석+개선안</td><td>이유 해석(제한요인)</td><td>흥미/참여</td></tr>
+<tr><td><b>확장</b></td><td>실생활 적용</td><td>개념 해석</td><td>없음</td></tr>
+</tbody></table></div>
+<div class="co co-accent"><b>결론:</b> A는 <b>통제+정량+오차+확장</b> 모두 포함. B는 가설-데이터-해석까지 있으나 오차/개선 약함. C는 "활동"만 남아 중위권 문장.</div>
+</section>
+
+<!-- 4 변환 6단계 -->
+<section class="sec" id="sec-logic">
+<h2><span class="n">4</span> 변환 로직 6단계</h2>
+<div class="cg c2">
+<div class="cd"><div class="cd-title">6단계 프로세스</div><p style="font-size:12.5px;color:var(--sub);line-height:2">① 탐구 주제 확정(한 문장 문제정의)<br/>② 가설 설정(검증 가능한 형태)<br/>③ 변인 설계(독립·종속·통제)<br/>④ 실험/관찰(반복 측정, 대조군)<br/>⑤ 데이터 처리(표·그래프·평균·편차)<br/>⑥ 해석·오차·확장(한계/개선/추가 실험)</p></div>
+<div class="cd"><div class="cd-title">과학 세특 3문장 구조</div><p style="font-size:12.5px;color:var(--sub);line-height:2"><b>[1]</b> 문제정의+가설+변인통제<br/><b>[2]</b> 데이터(반복·평균·그래프)+해석<br/><b>[3]</b> 오차·개선·확장+태도(정교함 증거)</p><div class="co co-accent" style="font-size:11.5px"><b>핵심:</b> "성실함"은 직접 쓰지 말고 <b>반복 측정·오차 분석</b>으로 "증명"하세요.</div></div>
+</div></section>
+
+<!-- 5 실전 전략 -->
+<section class="sec" id="sec-strategy">
+<h2><span class="n">5</span> 실전 전략</h2>
+<div class="cg c4">
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">전략 1</div><p style="font-size:12.5px;color:var(--sub)">"한 가지 조건" 끝까지 <b>통제</b>. 온도/시료량/교반 중 하나 명시</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">전략 2</div><p style="font-size:12.5px;color:var(--sub)">반복 측정 <b>최소 3회</b>. 1회=우연, 3~5회=과학</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">전략 3</div><p style="font-size:12.5px;color:var(--sub)"><b>오차 인정</b>=상위권. 원인(도구/환경)+개선안</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">전략 4</div><p style="font-size:12.5px;color:var(--sub)">결과를 <b>확장</b>으로 마감. 실생활/추가 실험</p></div>
+</div>
+<div class="co co-accent"><b>현장 메모:</b> 학생에게 질문 3개만 — "몇 회 반복?" "무슨 그래프?" "오차 원인은?"</div>
+</section>
+
+<!-- 6 평가기준 (NEW) -->
+<section class="sec" id="sec-eval">
+<h2><span class="n">6</span> 서류평가 107개 항목 연결 <span class="badge b-red">NEW</span></h2>
+<p class="sec-sub">과학 = 10개 지표 중 <b>6개 '강'</b> — 5과목 중 <b>최고 커버리지</b></p>
+<div class="cg c2">
+<div class="cd" style="border:2px solid var(--accent-border)">
+<div class="cd-title" style="color:var(--accent)">과학이 '강'으로 대응하는 지표</div>
+<div style="margin-top:10px">
+<div class="cv-row"><div class="cv-lbl">1.학업성취도</div><div class="cv-bar"><div class="cv-fill" style="width:92%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">2.학업태도</div><div class="cv-bar"><div class="cv-fill" style="width:88%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">3.탐구력</div><div class="cv-bar"><div class="cv-fill" style="width:95%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">4.전공이수</div><div class="cv-bar"><div class="cv-fill" style="width:90%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">5.전공성취</div><div class="cv-bar"><div class="cv-fill" style="width:90%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">7.협업·소통</div><div class="cv-bar"><div class="cv-fill" style="width:85%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+</div>
+<div class="co co-accent" style="font-size:11.5px"><b>핵심:</b> 과학은 <b>탐구력(95%)</b> 5과목 중 최고 점수. 가설-검증-데이터-오차 서술이 탐구력 지표에 직접 대응합니다.</div>
+</div>
+<div class="cd">
+<div class="cd-title">전체 10개 지표</div>
+<div style="margin-top:10px">
+<div class="cv-row"><div class="cv-lbl">1.학업성취도</div><div class="cv-bar"><div class="cv-fill" style="width:92%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">2.학업태도</div><div class="cv-bar"><div class="cv-fill" style="width:88%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">3.탐구력</div><div class="cv-bar"><div class="cv-fill" style="width:95%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">4.전공이수</div><div class="cv-bar"><div class="cv-fill" style="width:90%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">5.전공성취</div><div class="cv-bar"><div class="cv-fill" style="width:90%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">6.진로탐색</div><div class="cv-bar"><div class="cv-fill" style="width:55%;background:var(--blue)"></div></div><div class="cv-val">중</div></div>
+<div class="cv-row"><div class="cv-lbl">7.협업·소통</div><div class="cv-bar"><div class="cv-fill" style="width:85%;background:var(--accent)"></div></div><div class="cv-val" style="color:var(--accent)">강</div></div>
+<div class="cv-row"><div class="cv-lbl">8.나눔·배려</div><div class="cv-bar"><div class="cv-fill" style="width:50%;background:var(--blue)"></div></div><div class="cv-val">중</div></div>
+<div class="cv-row"><div class="cv-lbl">9.성실성</div><div class="cv-bar"><div class="cv-fill" style="width:55%;background:var(--blue)"></div></div><div class="cv-val">중</div></div>
+<div class="cv-row"><div class="cv-lbl">10.리더십</div><div class="cv-bar"><div class="cv-fill" style="width:45%;background:var(--orange)"></div></div><div class="cv-val" style="color:var(--muted)">약</div></div>
+</div></div>
+</div></section>
+
+<!-- 7 생성기 -->
+<section class="sec" id="sec-gen">
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+<h2><span class="n">7</span> 세특 문장 생성기</h2>
+<div class="no-print" style="display:flex;gap:5px"><button class="btn btn-sm" id="btnReset">초기화</button><button class="btn btn-accent btn-sm" id="btnCopyGen">결과 복사</button></div>
+</div>
+<p class="sec-sub">과학 3문장 구조(문제+가설+변인 → 데이터+해석 → 오차+확장)로 초안 생성</p>
+<div class="cg c2">
+<div class="cd" style="background:var(--card)">
+<div class="fld"><label class="fld-lbl">탐구 주제(문제정의)</label><input id="inTopic" class="fi" placeholder="예: 용액의 농도 변화에 따른 반응 속도"/></div>
+<div class="fld"><label class="fld-lbl">가설(검증 가능)</label><input id="inHyp" class="fi" placeholder="예: 농도가 증가할수록 반응 시간이 감소할 것이다"/></div>
+<div class="fld"><label class="fld-lbl">변인(독립/종속/통제)</label><input id="inVar" class="fi" placeholder="예: 독립=농도, 종속=반응시간, 통제=온도·시료량"/></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div class="fld"><label class="fld-lbl">반복 횟수</label><input id="inRep" type="number" min="1" class="fi" placeholder="예: 5"/></div>
+<div class="fld"><label class="fld-lbl">데이터 처리</label><input id="inData" class="fi" placeholder="예: 평균·편차, 그래프"/></div>
+</div>
+<div class="fld"><label class="fld-lbl">해석 포인트</label><input id="inExplain" class="fi" placeholder="예: 농도 증가→반응 속도 경향 및 제한요인"/></div>
+<div class="fld"><label class="fld-lbl">오차/개선</label><input id="inErr" class="fi" placeholder="예: 교반 속도 차이 → 일정 교반으로 개선"/></div>
+<div class="fld"><label class="fld-lbl">확장(실생활/추가 실험)</label><input id="inExt" class="fi" placeholder="예: 세제 농도·약물 농도 사례 / 다른 변인 추가"/></div>
+<button id="btnGen" class="btn btn-accent" style="width:100%;justify-content:center;padding:11px">세특 초안 생성</button>
+</div>
+<div class="cd" style="background:var(--card)">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><b style="font-size:13.5px">생성 결과</b><div style="display:flex;gap:8px"><span id="charCount" style="font-size:11.5px;color:var(--muted)">0자</span><span id="byteCount" style="font-size:11.5px;color:var(--muted)">0B</span></div></div>
+<textarea id="genOut" class="fi" style="min-height:160px" placeholder="초안이 여기에 생성됩니다."></textarea>
+<div style="margin-top:14px;padding:12px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm)">
+<div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px">3대 역량 태그</div>
+<div class="meter-g"><div><div class="meter-lbl" style="color:var(--tag-학업)">학업</div><div class="meter"><div class="meter-fill" id="m-학업" style="width:0%;background:var(--tag-학업)"></div></div></div><div><div class="meter-lbl" style="color:var(--tag-진로)">진로</div><div class="meter"><div class="meter-fill" id="m-진로" style="width:0%;background:var(--tag-진로)"></div></div></div><div><div class="meter-lbl" style="color:var(--tag-공동체)">공동체</div><div class="meter"><div class="meter-fill" id="m-공동체" style="width:0%;background:var(--tag-공동체)"></div></div></div></div>
+<div id="tagMsg" style="font-size:10.5px;color:var(--muted);margin-top:6px;text-align:center">초안 생성 후 자동 분석</div>
+</div>
+<div style="margin-top:10px;padding:12px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm)">
+<div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:6px">과학 세특 상급 5요소</div>
+<div class="gc" style="grid-template-columns:1fr 1fr 1fr"><div id="gc1">① 가설 —</div><div id="gc2">② 변인통제 —</div><div id="gc3">③ 정량 데이터 —</div><div id="gc4">④ 오차·개선 —</div><div id="gc5">⑤ 확장 —</div></div>
+</div></div>
+</div></section>
+
+<!-- 8 면접 -->
+<section class="sec" id="sec-interview">
+<h2><span class="n">8</span> 면접 예상 질문 <span class="badge b-red">NEW</span></h2>
+<p class="sec-sub">과학 세특에서 면접 3단 구조를 자동 생성합니다.</p>
+<div class="co co-accent" style="margin-top:0"><b>사용법:</b> 위 생성기에서 초안 생성 시 자동으로 나타납니다.</div>
+<div class="cg c3" style="margin-top:12px">
+<div class="iq"><div class="ql">동기 (왜?)</div><div class="qt" id="iq1" style="color:var(--muted)">초안 생성 후 자동</div></div>
+<div class="iq"><div class="ql">과정 (어떻게?)</div><div class="qt" id="iq2" style="color:var(--muted)">초안 생성 후 자동</div></div>
+<div class="iq"><div class="ql">성찰 (무엇을 배웠나?)</div><div class="qt" id="iq3" style="color:var(--muted)">초안 생성 후 자동</div></div>
+</div></section>
+
+<!-- 9 체크리스트 -->
+<section class="sec" id="sec-check">
+<h2><span class="n">9</span> 현장 체크리스트</h2>
+<div class="cg c3" style="margin-top:14px">
+<div class="cd"><div class="cd-title">A. 탐구 설계</div><div class="chk-g">
+<label class="chk"><input type="checkbox"/><span>문제정의 한 문장</span></label>
+<label class="chk"><input type="checkbox"/><span>가설이 <b>검증 가능</b></span></label>
+<label class="chk"><input type="checkbox"/><span>독립·종속·통제 변인 명시</span></label>
+</div></div>
+<div class="cd"><div class="cd-title">B. 데이터·분석</div><div class="chk-g">
+<label class="chk"><input type="checkbox"/><span>반복 측정(3회+) 또는 대조군</span></label>
+<label class="chk"><input type="checkbox"/><span>표/그래프 처리</span></label>
+<label class="chk"><input type="checkbox"/><span>평균/편차/기울기 정량 처리</span></label>
+</div></div>
+<div class="cd"><div class="cd-title">C. 오차·확장</div><div class="chk-g">
+<label class="chk"><input type="checkbox"/><span>오차 원인 1개+</span></label>
+<label class="chk"><input type="checkbox"/><span>개선안 1개+</span></label>
+<label class="chk"><input type="checkbox"/><span>실생활 적용/추가 실험 확장</span></label>
+<label class="chk"><input type="checkbox"/><span><b style="color:var(--accent)">✦</b> 탐구력 지표(95%) 대응 확인</span></label>
+<label class="chk"><input type="checkbox"/><span><b style="color:var(--accent)">✦</b> 면접 질문 전환 가능한 데이터</span></label>
+</div></div>
+</div>
+<div class="co co-accent" style="margin-top:12px"><b>현장 한 줄:</b> 과학 세특은 "과학자처럼 기록했냐"만 봅니다. 확인: <b>반복 횟수</b>, <b>그래프</b>, <b>오차/개선</b>.</div>
+</section>
+
+</main></div></div>
+
+<footer class="footer"><b>김휘창입시컨설팅 · HiFive AI</b> · 107개 평가항목 기반<br/>과학(공통/통합) 우수 세특 분석 · 3대 역량 태그 시스템</footer>
+<div class="toast" id="toast">복사 완료</div>
+
+<script>
+const $=id=>document.getElementById(id);const copy=t=>navigator.clipboard?navigator.clipboard.writeText(t):Promise.resolve((()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;left:-9999px";document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a)})());const bytes=s=>new Blob([s]).size;let toastT;function toast(m){const e=$("toast");e.textContent=m;e.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove("show"),1400)}
+
+const STU={
+A:{lbl:"최상위",tag:"정량·통제·오차",text:"'용액의 농도 변화에 따른 반응 속도' 탐구에서 독립·종속·통제 변인을 구분하고 온도와 용질의 양을 통제한 뒤 농도별 반응 시간을 5회 반복 측정하여 평균과 편차를 산출함. 측정값을 그래프로 시각화해 농도 증가에 따른 반응 속도 변화 경향을 해석하고, 교반 속도·시료량에 따른 오차 가능성을 분석해 개선안을 제시함. 결과를 실생활(세제 농도/약물 농도) 사례로 확장하여 설명하는 등 탐구를 논리적으로 전개함."},
+B:{lbl:"상위",tag:"가설·데이터",text:"'빛의 세기에 따른 광합성 속도 변화' 탐구에서 빛의 세기가 증가할수록 산소 발생량이 증가할 것이라는 가설을 세우고, 동일한 조건에서 빛의 세기를 달리하며 산소 발생량을 반복 측정함. 측정 결과를 표로 정리하고 경향을 설명하였으며, 특정 구간 이후 증가가 둔화되는 이유를 제한 요인 관점에서 해석함. 탐구 과정에서 자료 정리와 발표에 성실히 참여함."},
+C:{lbl:"중위",tag:"활동 중심",text:"'전류가 흐르는 도선 주위의 자기장' 실험을 수행하며 관찰 결과를 정리하고 발표함. 실험 과정에 적극적으로 참여하고, 관련 개념을 정리하여 이해하려는 태도를 보임. 실험을 통해 전류와 자기장의 관계를 확인하고 과학에 대한 흥미를 높임."}
+};
+function renderStu(){const k=$("stuSel").value,s=STU[k];const bc=k==="A"?"b-green":k==="B"?"b-accent":"b-orange";$("stuMeta").innerHTML=`<span class="badge ${bc}">${s.lbl}</span> <span class="badge b-blue">${s.tag}</span>`;$("stuText").textContent=s.text}
+$("stuSel").addEventListener("change",renderStu);$("btnCopyEx").addEventListener("click",async()=>{await copy($("stuText").textContent.trim());toast("원문 복사 완료")});renderStu();
+
+function buildDraft(){
+const topic=($("inTopic").value||"탐구 주제").trim(),hyp=($("inHyp").value||"검증 가능한 가설을 설정함").trim(),vars=($("inVar").value||"독립·종속·통제 변인을 구분함").trim(),rep=($("inRep").value||"3").trim(),data=($("inData").value||"측정값을 표·그래프로 정리함").trim(),explain=($("inExplain").value||"경향과 원인을 해석함").trim(),err=($("inErr").value||"오차 원인을 분석하고 개선안을 제시함").trim(),ext=($("inExt").value||"추가 실험 또는 실생활 사례로 확장함").trim();
+let s=`'${topic}' 탐구에서 ${hyp} ${vars} 조건을 설계함. 해당 조건에서 ${rep}회 반복 측정 후 ${data}하고, ${explain}. ${err} 또한 결과를 ${ext} 등으로 확장하여 탐구를 논리적으로 전개함.`;
+return s.length>360?s.replace("해당 조건에서 ","").replace("또한 ","").replace(" 등으로","로"):s}
+
+function counts(){const t=$("genOut").value||"";$("charCount").textContent=t.length+"자";$("byteCount").textContent=bytes(t)+"B"}
+function tagAnalyze(t){const kw={학업:["이해","분석","측정","가설","검증","변인","통제","데이터","정량","편차","평균","그래프","해석","산출","시각화","탐구","관찰","실험","경향","제한"],진로:["진로","전공","관심","확장","실생활","적용","사례"],공동체:["협력","참여","발표","의사소통","모둠","소통","성실","정리","공유"]};let s={};for(const k in kw){s[k]=0;kw[k].forEach(w=>{if(t.includes(w))s[k]++})}const mx=Math.max(s.학업,s.진로,s.공동체,1);return{학업:Math.round(s.학업/mx*100),진로:Math.round(s.진로/mx*100),공동체:Math.round(s.공동체/mx*100)}}
+function updateTags(){const t=$("genOut").value||"";const c=tagAnalyze(t);$("m-학업").style.width=c.학업+"%";$("m-진로").style.width=c.진로+"%";$("m-공동체").style.width=c.공동체+"%";const f=[];if(c.학업>30)f.push("학업");if(c.진로>30)f.push("진로");if(c.공동체>30)f.push("공동체");$("tagMsg").textContent=f.length?`감지: ${f.join(", ")}`:"키워드 미감지"}
+function checkGood(){const t=$("genOut").value||"";const r=[[/(가설|것이다|증가할|감소할)/.test(t),"① 가설"],[/(변인|통제|독립|종속)/.test(t),"② 변인통제"],[/(측정|평균|편차|그래프|반복|회|정량)/.test(t),"③ 정량 데이터"],[/(오차|개선|한계|원인)/.test(t),"④ 오차·개선"],[/(확장|실생활|추가|사례|적용)/.test(t),"⑤ 확장"]];r.forEach(([ok,lbl],i)=>{const el=$("gc"+(i+1));el.textContent=`${lbl} ${ok?"✓":"—"}`;el.className=ok?"ok":""})}
+function genInterview(){const topic=($("inTopic").value||"").trim()||"과학 탐구";$("iq1").textContent=`"'${topic}'를 주제로 선택한 이유는? 가설을 어떻게 설정했나요?"`;$("iq1").style.color="var(--text)";$("iq2").textContent=`"변인을 통제하면서 가장 어려웠던 점은? 오차를 줄이기 위해 어떤 방법을 사용했나요?"`;$("iq2").style.color="var(--text)";$("iq3").textContent=`"이 탐구를 통해 과학적 사고에서 가장 중요하다고 느낀 점은? 후속 연구 계획은?"`;$("iq3").style.color="var(--text)"}
+function refresh(){counts();updateTags();checkGood()}
+
+$("btnGen").addEventListener("click",()=>{$("genOut").value=buildDraft();refresh();genInterview();toast("초안 생성 완료")});
+$("genOut").addEventListener("input",refresh);
+$("btnCopyGen").addEventListener("click",async()=>{const t=$("genOut").value||"";if(!t.trim())return toast("먼저 초안 생성");await copy(t);toast("복사 완료")});
+$("btnReset").addEventListener("click",()=>{["inTopic","inHyp","inVar","inRep","inData","inExplain","inErr","inExt","genOut"].forEach(id=>$(id).value="");refresh();toast("초기화")});
+$("btnCopySummary").addEventListener("click",async()=>{await copy("[과학 세특 핵심 요약]\n- 핵심: 탐구역량(가설-검증) × 데이터역량(정량) × 태도(증거)\n- 상위권: 통제+정량+오차+확장 모두 포함\n- 3문장: 문제+가설+변인 → 데이터+해석 → 오차+확장\n- 10개 지표: 6개 '강' (5과목 중 최고)\n- 탐구력 95% = 5과목 중 최고 점수\n- 면접: 동기→과정→성찰\n- 현장 질문 3개: 반복 횟수? 그래프? 오차?");toast("요약 복사 완료")});
+document.querySelectorAll(".chk input").forEach(cb=>{cb.addEventListener("change",function(){this.closest(".chk").classList.toggle("on",this.checked)})});
+(function(){const r=new URLSearchParams(location.search).get("return");if(r)$("backToMain").href=decodeURIComponent(r)})();
+const secs=document.querySelectorAll("[id^='sec-']");const navLinks=document.querySelectorAll(".side-nav a");window.addEventListener("scroll",()=>{let c="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)c=s.id});navLinks.forEach(a=>{a.classList.toggle("on",a.getAttribute("href")==="#"+c)})},{passive:true});counts();
+</script></body></html>

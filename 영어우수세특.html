@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>영어(영어회화) · 우수 세특 분석 프로그램</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F5F3F8;--card:#FFFFFF;--card-alt:#FAFAFE;--border:#DDD8E6;--border-light:#EDEBF2;--text:#1E1E30;--sub:#5A5570;--muted:#8E8AA0;--accent:#6B4FA0;--accent-hover:#553D88;--accent-bg:#F0ECF8;--accent-border:#C6B8E4;--green:#2A7B4F;--green-bg:#EBF5F0;--green-border:#B0D8C2;--orange:#B87A2E;--orange-bg:#FDF5EB;--orange-border:#EECFA0;--red:#B54040;--red-bg:#FDEDED;--red-border:#EEB8B8;--blue:#2E5CB8;--blue-bg:#EBF0FA;--tag-학업:#6B4FA0;--tag-진로:#2A7B4F;--tag-공동체:#B87A2E;--shadow-sm:0 1px 2px rgba(30,30,48,.04);--shadow:0 1px 3px rgba(30,30,48,.06),0 6px 16px rgba(30,30,48,.04);--r:14px;--r-sm:10px;--r-xs:7px}
+html{scroll-behavior:smooth;font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+@media print{.no-print{display:none!important}body{background:#fff!important}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:24px 0 48px}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.sidebar{display:none}}
+.topbar{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#8B6FC0,#6B4FA0);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800}
+.logo small{font-size:11.5px;color:var(--muted);display:block}
+.logo strong{font-size:14.5px;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r-xs);font-size:12.5px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;transition:all .15s}
+.btn:hover{background:#EEEAF4}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-accent:hover{background:var(--accent-hover)}
+.btn-sm{padding:5px 11px;font-size:11.5px}
+.sidebar{position:sticky;top:68px;height:fit-content;max-height:calc(100vh - 84px);overflow-y:auto}
+.side-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-sm)}
+.side-label{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.side-nav a{display:block;padding:7px 11px;border-radius:var(--r-xs);font-size:12.5px;color:var(--sub);text-decoration:none;transition:all .12s;margin-bottom:1px}
+.side-nav a:hover,.side-nav a.on{background:var(--accent-bg);color:var(--accent)}
+.side-meta{margin-top:14px;padding:13px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm);font-size:12px;color:var(--sub);line-height:1.7}
+.side-meta b{color:var(--text);font-weight:700}
+.sec{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm);margin-bottom:20px}
+.sec h2{font-size:18px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.sec h2 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.sec-sub{font-size:13px;color:var(--sub);margin-bottom:16px}
+.hero{background:linear-gradient(135deg,#F3EFF8 0%,#E8E0F4 60%,#DDD4EE 100%);border:1px solid #C8BBE0;border-radius:18px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(107,79,160,.08),transparent 70%);border-radius:50%}
+.hero-tag{display:inline-flex;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(107,79,160,.1);border:1px solid rgba(107,79,160,.18);color:var(--accent);margin-bottom:14px}
+.hero h1{font-family:'Nanum Myeongjo',serif;font-size:26px;font-weight:800;line-height:1.4;letter-spacing:-.02em;color:#1A1830}
+@media(max-width:640px){.hero h1{font-size:21px}}
+.hero p{margin-top:10px;font-size:13.5px;color:var(--sub);max-width:620px;line-height:1.85}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px;position:relative;z-index:1}
+@media(max-width:640px){.hero-grid{grid-template-columns:repeat(2,1fr)}}
+.hero-card{background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.7);border-radius:var(--r-sm);padding:13px;backdrop-filter:blur(4px)}
+.hero-card .lbl{font-size:10.5px;color:var(--muted);font-weight:600}
+.hero-card .val{font-size:13.5px;font-weight:700;margin-top:3px}
+.hero-card .dsc{font-size:10.5px;color:var(--sub);margin-top:4px}
+.badge{display:inline-flex;padding:3px 9px;border-radius:16px;font-size:10.5px;font-weight:600}
+.b-accent{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-border)}
+.b-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.b-orange{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.b-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.tag{display:inline-flex;padding:2px 7px;border-radius:5px;font-size:10.5px;font-weight:600}
+.t-학업{background:var(--accent-bg);color:var(--accent)}.t-진로{background:var(--green-bg);color:var(--green)}.t-공동체{background:var(--orange-bg);color:var(--orange)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-sm);margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:#F4F2FA;padding:9px 13px;text-align:left;font-weight:700;font-size:11.5px;color:var(--sub);border-bottom:2px solid var(--border)}
+td{padding:9px 13px;border-bottom:1px solid var(--border-light);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#FAFAFD}
+.cg{display:grid;gap:12px;margin-top:14px}.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.c2,.c3,.c4{grid-template-columns:1fr}}
+.cd{background:var(--card-alt);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;transition:box-shadow .2s}
+.cd:hover{box-shadow:var(--shadow)}
+.cd-title{font-size:13.5px;font-weight:700;margin-bottom:8px}
+.lv-top{border-left:3px solid var(--green)}.lv-mid{border-left:3px solid var(--accent)}.lv-base{border-left:3px solid var(--orange)}
+.co{padding:14px 18px;border-radius:var(--r-sm);margin-top:14px;font-size:12.5px;line-height:1.8}
+.co-accent{background:var(--accent-bg);border:1px solid var(--accent-border);color:#2A1850}
+.co-green{background:var(--green-bg);border:1px solid var(--green-border);color:#1A5A35}
+.co-orange{background:var(--orange-bg);border:1px solid var(--orange-border);color:#5A3E10}
+.co b{font-weight:700}
+.cv-row{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:12px}
+.cv-lbl{width:100px;font-weight:600;color:var(--sub);flex-shrink:0}
+.cv-bar{flex:1;height:9px;background:#EDEBF2;border-radius:5px;overflow:hidden}
+.cv-fill{height:100%;border-radius:5px;transition:width .5s ease}
+.cv-val{width:36px;text-align:right;font-weight:700;font-size:11px}
+.fi{width:100%;padding:9px 13px;border:1px solid var(--border);border-radius:var(--r-xs);font-size:12.5px;font-family:inherit;background:var(--card);outline:none;transition:border .15s}
+.fi:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(107,79,160,.1)}
+.fi::placeholder{color:var(--muted)}
+textarea.fi{resize:vertical;min-height:90px;line-height:1.8}
+.fld{margin-bottom:12px}.fld-lbl{display:block;font-size:11.5px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.meter-g{display:flex;gap:8px;margin-top:8px}.meter-g>div{flex:1;text-align:center}
+.meter-lbl{font-size:10px;font-weight:700;margin-bottom:3px}
+.meter{height:7px;border-radius:4px;background:#EDEBF2;overflow:hidden}
+.meter-fill{height:100%;border-radius:4px;transition:width .4s}
+.iq{background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm);padding:13px;margin-top:7px}
+.iq .ql{font-size:10.5px;font-weight:700;color:var(--accent)}.iq .qt{font-size:12.5px;margin-top:3px;font-weight:500}
+.chk-g{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.chk{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--sub);cursor:pointer}
+.chk input{width:17px;height:17px;accent-color:var(--accent);margin-top:2px;flex-shrink:0;cursor:pointer}
+.chk.on{color:var(--text);font-weight:500}
+.pre-box{white-space:pre-wrap;word-break:keep-all;font-size:12.5px;line-height:1.7;color:var(--text);background:var(--card-alt);border:1px solid var(--border-light);padding:14px;border-radius:var(--r-sm)}
+.gc{display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:11px}
+.gc>div{padding:6px 8px;border-radius:var(--r-xs);background:#EDEBF2;color:var(--muted);transition:all .2s}
+.gc>div.ok{background:var(--green-bg);color:var(--green)}
+.back{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--sub);text-decoration:none;border-radius:var(--r-xs);transition:all .12s;margin:10px 0}
+.back:hover{background:var(--accent-bg);color:var(--accent)}
+.footer{text-align:center;padding:28px 20px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border)}.footer b{color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(6px);background:var(--text);color:#fff;padding:9px 18px;border-radius:20px;font-size:12.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:200}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><div class="topbar-inner">
+  <div class="logo"><div class="logo-icon">영</div><div><small>학생부 과목별 우수세특사례 분석 프로그램</small><strong>영어(영어회화) · 우수 세특 분석</strong></div></div>
+  <div class="no-print" style="display:flex;gap:6px"><button class="btn btn-sm" id="btnCopySummary">요약 복사</button><button class="btn btn-accent btn-sm" onclick="window.print()">인쇄 / PDF</button></div>
+</div></div></div>
+
+<div class="wrap">
+<a id="backToMain" class="back no-print" href="../index.html#subjects">← 메인으로</a>
+<div class="layout">
+<aside class="sidebar no-print"><div class="side-box">
+  <div class="side-label">빠른 이동</div>
+  <nav class="side-nav" id="sideNav">
+    <a href="#sec-intro">프로그램 개요</a><a href="#sec-overview">구조 개요</a><a href="#sec-students">A~F 원문 비교</a>
+    <a href="#sec-compare">수준별 표현 비교</a><a href="#sec-turn">"~했으나" 반전 구조</a><a href="#sec-feedback">자기·동료평가 반영</a>
+    <a href="#sec-eval">평가기준 연결 ✦</a><a href="#sec-gen">세특 문장 생성기</a><a href="#sec-interview">면접 질문 ✦</a><a href="#sec-check">현장 체크리스트</a>
+  </nav>
+  <div class="side-meta"><b>영어(영어회화)</b><br/>A~F 6명(상·중·하 각 2)<br/>3대 역량 · 10개 지표 통합 분석</div>
+</div></aside>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="sec-intro">
+  <div class="hero-tag">🗣️ 영어과 세특 · 태도관찰이 톤을 바꾼다</div>
+  <h1>같은 점수라도 태도관찰이<br>세특의 "톤"과 "결론 문장"을<br>완전히 바꿉니다</h1>
+  <p>영어회화 수행평가 <b>A~F 6명(상·중·하)</b> 원문 비교와 <b>"~했으나" 반전 구조</b>, <b>서류평가 107개 항목 연결</b>, <b>면접 질문 자동 생성</b>까지 통합합니다.</p>
+  <div class="hero-grid">
+    <div class="hero-card"><div class="lbl">결정타 1</div><div class="val">태도관찰 상/중</div><div class="dsc">동일 점수에서 톤 분기</div></div>
+    <div class="hero-card"><div class="lbl">결정타 2</div><div class="val">"~했으나" 반전</div><div class="dsc">한계→행동→변화 3단계</div></div>
+    <div class="hero-card"><div class="lbl">결정타 3</div><div class="val">영어능력 4분해</div><div class="dsc">발음/유창성/어휘·구문/매체</div></div>
+    <div class="hero-card"><div class="lbl">NEW <span class="badge b-red" style="font-size:9px;padding:1px 6px">✦</span></div><div class="val">10개 지표 중 3개 '강'</div><div class="dsc">협업·소통 최강 커버리지</div></div>
+  </div>
+</section>
+
+<!-- 1 구조 개요 -->
+<section class="sec" id="sec-overview">
+  <h2><span class="n">1</span> 구조 개요</h2>
+  <p class="sec-sub">동일 수행평가를 A~F(상·중·하 각 2명)가 수행 → 세특이 <b>어떻게 달라지는지</b> 비교형 자료</p>
+  <div class="cg c2">
+    <div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">수행평가 1 (모둠)</div><p style="font-size:12.5px;color:var(--sub)"><b>주제:</b> 한국문화 vs 영미문화 차이 설명<br/><b>평가:</b> 문화차이 설명 + 태도관찰<br/><b>역량:</b> <span class="tag t-학업">학업(탐구)</span> <span class="tag t-공동체">공동체(소통·협업)</span></p></div>
+    <div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-title" style="color:var(--accent)">수행평가 2 (개인 발표)</div><p style="font-size:12.5px;color:var(--sub)"><b>주제:</b> 영어로 자기소개 & 자기PR<br/><b>평가:</b> 자기표현 + 태도관찰<br/><b>역량:</b> <span class="tag t-학업">학업(표현)</span> <span class="tag t-진로">진로(비전)</span></p></div>
+  </div>
+  <div class="co co-accent"><b>핵심:</b> "활동(무엇을 했나)"만 적지 말고 <b>태도·상호작용·근거(선정/평가)</b>를 끼워넣는 순간 "상급 문장"이 됩니다.</div>
+</section>
+
+<!-- 2 A~F 원문 -->
+<section class="sec" id="sec-students">
+  <h2><span class="n">2</span> A~F 세특 원문 비교 <span class="badge b-accent">6명</span></h2>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+    <div style="flex:1;min-width:100px" class="fld"><label class="fld-lbl">수준 필터</label><select id="lvlFilter" class="fi"><option value="all">전체</option><option value="상">상</option><option value="중">중</option><option value="하">하</option></select></div>
+    <div style="flex:2;min-width:140px" class="fld"><label class="fld-lbl">학생</label><select id="stuSel" class="fi"></select></div>
+    <div style="flex:0 0 auto;align-self:flex-end;padding-bottom:12px" class="no-print"><button class="btn btn-sm" id="btnCopyEx">원문 복사</button></div>
+  </div>
+  <div id="stuMeta" style="display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-bottom:8px;flex-wrap:wrap"></div>
+  <div class="pre-box" id="stuText" style="min-height:120px"></div>
+  <div class="cg c3" style="margin-top:10px">
+    <div class="cd" style="padding:10px 14px"><div style="font-size:10.5px;color:var(--muted)">상급 키워드</div><div id="stuKeys" style="font-size:12px;margin-top:3px"></div></div>
+    <div class="cd" style="padding:10px 14px"><div style="font-size:10.5px;color:var(--muted)">태도 근거</div><div id="stuAtt" style="font-size:12px;margin-top:3px"></div></div>
+    <div class="cd" style="padding:10px 14px"><div style="font-size:10.5px;color:var(--muted)">객관 근거</div><div id="stuEv" style="font-size:12px;margin-top:3px"></div></div>
+  </div>
+</section>
+
+<!-- 3 수준별 표현 비교 -->
+<section class="sec" id="sec-compare">
+  <h2><span class="n">3</span> 수준별 표현 비교표</h2>
+  <p class="sec-sub">"상/중/하"는 활동량이 아니라 <b>문장 구조·평가 근거·영어 능력 묘사 디테일</b>에서 갈립니다.</p>
+  <div class="cg c2">
+    <div class="cd">
+      <div class="cd-title">도입부 표현 차등</div>
+      <div class="tw" style="margin-top:0"><table>
+        <thead><tr><th>수준</th><th>학생</th><th>도입부</th><th>톤</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge b-green">상</span></td><td>A</td><td>의사소통능력이 <b>뛰어남</b></td><td>역량 직접</td></tr>
+          <tr><td><span class="badge b-green">상</span></td><td>B</td><td>학습 <b>부장</b>으로 활동</td><td>역할·직책</td></tr>
+          <tr><td><span class="badge b-accent">중</span></td><td>C</td><td>(도입 없이 바로 활동)</td><td>중립</td></tr>
+          <tr><td><span class="badge b-accent">중</span></td><td>D</td><td>묵묵히 <b>성실하게</b></td><td>성실 강조</td></tr>
+          <tr><td><span class="badge b-orange">하</span></td><td>E</td><td>필기를 자세히 하는 <b>착실한</b></td><td>태도 긍정</td></tr>
+          <tr><td><span class="badge b-orange">하</span></td><td>F</td><td>어려움을 보였<b>으나</b></td><td>한계→전환</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="cd">
+      <div class="cd-title">영어 실력 묘사 차등</div>
+      <div class="tw" style="margin-top:0"><table>
+        <thead><tr><th>수준</th><th>표현 예시</th></tr></thead>
+        <tbody>
+          <tr><td><b>상</b></td><td>원어민처럼 정확한 발음 / 유려한 구문 / 탁월한 전달력</td></tr>
+          <tr><td><b>중</b></td><td>다소 부정확했으나 자신감 / 느리지만 알아듣기 쉬움</td></tr>
+          <tr><td><b>하</b></td><td>유창성 부족 / 쉬운 어휘 중심 / 끊어지는 경우</td></tr>
+        </tbody>
+      </table></div>
+      <div class="cd-title" style="margin-top:14px">마무리 표현 차등</div>
+      <div class="tw" style="margin-top:0"><table>
+        <thead><tr><th>수준</th><th>패턴</th></tr></thead>
+        <tbody>
+          <tr><td><b>상</b></td><td>탁월한 전달력 / 롤 모델</td></tr>
+          <tr><td><b>중</b></td><td>깊은 인상 / 감동 / 재치</td></tr>
+          <tr><td><b>하</b></td><td>긍정적 모습 / 인상적</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 반전 구조 -->
+<section class="sec" id="sec-turn">
+  <h2><span class="n">4</span> "~했으나" 반전 구조 — 영어 세특 핵심 기법</h2>
+  <p class="sec-sub">하/중위권 → "상위권 문장"으로 끌어올리는 장치: <b>한계 → 행동 → 변화</b></p>
+  <div class="cg c3">
+    <div class="cd" style="border-top:3px solid var(--red)"><div class="cd-title" style="color:var(--red)">1단계: 한계 명시</div><p style="font-size:12.5px;color:var(--sub)">"발음이 다소 부정확했<b>으나</b>…"<br/>"유창성에 부족함이 있었<b>으나</b>…"</p></div>
+    <div class="cd" style="border-top:3px solid var(--orange)"><div class="cd-title" style="color:var(--orange)">2단계: 행동 제시</div><p style="font-size:12.5px;color:var(--sub)">"중요 단어를 크게 말하는 습관으로…"<br/>"원고를 수정하며 문장 구조를 정리…"</p></div>
+    <div class="cd" style="border-top:3px solid var(--green)"><div class="cd-title" style="color:var(--green)">3단계: 변화로 마감</div><p style="font-size:12.5px;color:var(--sub)">"학급의 흥미와 집중을 끌어올림"<br/>"동료평가에서 협력적 태도 최고점"</p></div>
+  </div>
+  <div class="co co-accent"><b>즉시 적용 템플릿:</b> [한계] 영어 발음/유창성에서 어려움이 있었으나, [행동] 발표 준비 과정에서 (핵심어휘 강조/문장구조 정리/시각자료 활용)을 통해 보완하였고, [변화] 발표에서 (청중 집중/의미 전달 명확/자신감 있는 태도)으로 성장함.</div>
+</section>
+
+<!-- 5 자기·동료평가 -->
+<section class="sec" id="sec-feedback">
+  <h2><span class="n">5</span> 자기·동료평가를 세특으로 "번역"하는 법</h2>
+  <div class="cg c2">
+    <div class="cd"><div class="cd-title" style="color:var(--green)">자기평가 → 진로/동기 문장</div><p style="font-size:12.5px;color:var(--sub)">"이 활동을 통해 <b>영문학</b> 전공을 희망하게 됨"<br/>"영어로 말하는 순간 자체가 소중하다는 도입부"<br/>핵심: '감상'이 아니라 <b>계기/결심/구체행동</b>으로 전환</p></div>
+    <div class="cd"><div class="cd-title" style="color:var(--orange)">동료평가 → 공동체역량 근거</div><p style="font-size:12.5px;color:var(--sub)">"협력적 태도 항목에서 <b>구성원 중 최고점</b>"<br/>"당황한 친구에게 내용을 작게 말해주는 <b>배려</b>"<br/>핵심: '친절했다'가 아니라 <b>장면/점수/선정</b>으로 증거화</p></div>
+  </div>
+</section>
+
+<!-- 6 평가기준 연결 (NEW) -->
+<section class="sec" id="sec-eval">
+  <h2><span class="n">6</span> 서류평가 107개 항목 연결 <span class="badge b-red">NEW</span></h2>
+  <p class="sec-sub">영어과 세특은 10개 지표 중 <b>3개 '강'</b> — 특히 <b>협업·소통</b>에서 5과목 중 가장 높은 대응력</p>
+  <div class="cg c2">
+    <div class="cd" style="border:2px solid var(--green-border)">
+      <div class="cd-title" style="color:var(--green)">영어과가 '강'으로 대응하는 지표</div>
+      <div style="margin-top:10px">
+        <div class="cv-row"><div class="cv-lbl">7.협업·소통</div><div class="cv-bar"><div class="cv-fill" style="width:95%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+        <div class="cv-row"><div class="cv-lbl">2.학업태도</div><div class="cv-bar"><div class="cv-fill" style="width:88%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+        <div class="cv-row"><div class="cv-lbl">8.나눔·배려</div><div class="cv-bar"><div class="cv-fill" style="width:85%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+      </div>
+      <div class="co co-green" style="font-size:11.5px"><b>핵심:</b> 영어 세특은 <b>협업·소통(7)</b> 지표에서 5과목 중 유일하게 '강'. 모둠 발표에서의 상호작용, 배려 에피소드가 직접 점수로 연결됩니다.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-title">전체 10개 지표 커버리지</div>
+      <div style="margin-top:10px">
+        <div class="cv-row"><div class="cv-lbl">1.학업성취도</div><div class="cv-bar"><div class="cv-fill" style="width:55%;background:var(--accent)"></div></div><div class="cv-val">중</div></div>
+        <div class="cv-row"><div class="cv-lbl">2.학업태도</div><div class="cv-bar"><div class="cv-fill" style="width:88%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+        <div class="cv-row"><div class="cv-lbl">3.탐구력</div><div class="cv-bar"><div class="cv-fill" style="width:50%;background:var(--accent)"></div></div><div class="cv-val">중</div></div>
+        <div class="cv-row"><div class="cv-lbl">4.전공이수</div><div class="cv-bar"><div class="cv-fill" style="width:25%;background:var(--orange)"></div></div><div class="cv-val" style="color:var(--muted)">약</div></div>
+        <div class="cv-row"><div class="cv-lbl">5.전공성취</div><div class="cv-bar"><div class="cv-fill" style="width:25%;background:var(--orange)"></div></div><div class="cv-val" style="color:var(--muted)">약</div></div>
+        <div class="cv-row"><div class="cv-lbl">6.진로탐색</div><div class="cv-bar"><div class="cv-fill" style="width:55%;background:var(--accent)"></div></div><div class="cv-val">중</div></div>
+        <div class="cv-row"><div class="cv-lbl">7.협업·소통</div><div class="cv-bar"><div class="cv-fill" style="width:95%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+        <div class="cv-row"><div class="cv-lbl">8.나눔·배려</div><div class="cv-bar"><div class="cv-fill" style="width:85%;background:var(--green)"></div></div><div class="cv-val" style="color:var(--green)">강</div></div>
+        <div class="cv-row"><div class="cv-lbl">9.성실성</div><div class="cv-bar"><div class="cv-fill" style="width:50%;background:var(--accent)"></div></div><div class="cv-val">중</div></div>
+        <div class="cv-row"><div class="cv-lbl">10.리더십</div><div class="cv-bar"><div class="cv-fill" style="width:25%;background:var(--orange)"></div></div><div class="cv-val" style="color:var(--muted)">약</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 생성기 -->
+<section class="sec" id="sec-gen">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2><span class="n">7</span> 세특 문장 생성기 (영어)</h2>
+    <div class="no-print" style="display:flex;gap:5px"><button class="btn btn-sm" id="btnResetWiz">초기화</button><button class="btn btn-accent btn-sm" id="btnCopyWiz">결과 복사</button></div>
+  </div>
+  <p class="sec-sub">"도입→활동(수행1·2)→영어능력→태도→근거→마감" 구조로 조립. 3대 역량 태그 자동 분석</p>
+  <div class="cg c2">
+    <div class="cd" style="background:var(--card)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="fld"><label class="fld-lbl">레벨</label><select id="wizLevel" class="fi"><option value="상">상(상위권 톤)</option><option value="중">중(중위권 톤)</option><option value="하">하(성장/노력 톤)</option></select></div>
+        <div class="fld"><label class="fld-lbl">도입부 방식</label><select id="wizIntro" class="fi"><option value="역량">역량 직접 명시</option><option value="직책">직책/역할 명시</option><option value="태도">태도(성실) 강조</option><option value="반전">"~했으나" 반전</option></select></div>
+      </div>
+      <div class="fld"><label class="fld-lbl">수행평가1(문화 비교) — 무엇을 했나</label>
+        <textarea id="wizTask1" class="fi" placeholder="예) 한국 선물 문화와 영미권 반응 차이를 비교, 짧은 역할극/광고 형식 발표"></textarea></div>
+      <div class="fld"><label class="fld-lbl">수행평가2(자기PR) — 무엇을 했나</label>
+        <textarea id="wizTask2" class="fi" placeholder="예) 영어로 2분 자기소개, 진로와 연결, 소품/자료 활용"></textarea></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="fld"><label class="fld-lbl">태도/협업 근거</label><input id="wizAtt" class="fi" placeholder="예) 동료평가 협력 태도 최고점"/></div>
+        <div class="fld"><label class="fld-lbl">객관 근거(선정/평가)</label><input id="wizEv" class="fi" placeholder="예) '발표 왕' 선정"/></div>
+      </div>
+      <div class="fld"><label class="fld-lbl">영어 능력 포인트(발음/유창성/어휘·구문/매체)</label><input id="wizSkill" class="fi" placeholder="예) 발음 명료, 적정 속도, 고급 어휘·구문, 시각자료 활용"/></div>
+      <button id="btnGenWiz" class="btn btn-accent" style="width:100%;justify-content:center;padding:11px">세특 문장 생성</button>
+    </div>
+    <div class="cd" style="background:var(--card)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <b style="font-size:13.5px">생성 결과</b>
+        <div style="display:flex;gap:8px"><span id="charCount" style="font-size:11.5px;color:var(--muted)">0자</span><span id="byteCount" style="font-size:11.5px;color:var(--muted)">0B</span></div>
+      </div>
+      <textarea id="wizOut" class="fi" style="min-height:140px" placeholder="여기에 결과가 생성됩니다."></textarea>
+      <div style="margin-top:14px;padding:12px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm)">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px">3대 역량 태그</div>
+        <div class="meter-g">
+          <div><div class="meter-lbl" style="color:var(--tag-학업)">학업역량</div><div class="meter"><div class="meter-fill" id="m-학업" style="width:0%;background:var(--tag-학업)"></div></div></div>
+          <div><div class="meter-lbl" style="color:var(--tag-진로)">진로역량</div><div class="meter"><div class="meter-fill" id="m-진로" style="width:0%;background:var(--tag-진로)"></div></div></div>
+          <div><div class="meter-lbl" style="color:var(--tag-공동체)">공동체역량</div><div class="meter"><div class="meter-fill" id="m-공동체" style="width:0%;background:var(--tag-공동체)"></div></div></div>
+        </div>
+        <div id="tagMsg" style="font-size:10.5px;color:var(--muted);margin-top:6px;text-align:center">문장 생성 후 자동 분석</div>
+      </div>
+      <div style="margin-top:10px;padding:12px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm)">
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:6px">영어 세특 상급 4요소 체크</div>
+        <div class="gc"><div id="gc1">① 도입부(역량/직책) —</div><div id="gc2">② 영어능력 4분해 —</div><div id="gc3">③ 객관 근거 —</div><div id="gc4">④ 태도·배려 에피소드 —</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 면접 -->
+<section class="sec" id="sec-interview">
+  <h2><span class="n">8</span> 면접 예상 질문 <span class="badge b-red">NEW</span></h2>
+  <p class="sec-sub">영어 세특에서 면접 3단 구조(왜→어떻게→무엇을 배웠나)를 자동 생성합니다.</p>
+  <div class="co co-accent" style="margin-top:0"><b>사용법:</b> 위 생성기에서 문장 생성 시 자동으로 나타납니다.</div>
+  <div class="cg c3" style="margin-top:12px">
+    <div class="iq"><div class="ql">동기 (왜?)</div><div class="qt" id="iq1" style="color:var(--muted)">세특 문장 생성 후 자동</div></div>
+    <div class="iq"><div class="ql">과정 (어떻게?)</div><div class="qt" id="iq2" style="color:var(--muted)">세특 문장 생성 후 자동</div></div>
+    <div class="iq"><div class="ql">성찰 (무엇을 배웠나?)</div><div class="qt" id="iq3" style="color:var(--muted)">세특 문장 생성 후 자동</div></div>
+  </div>
+</section>
+
+<!-- 9 체크리스트 -->
+<section class="sec" id="sec-check">
+  <h2><span class="n">9</span> 현장 적용 체크리스트 (영어)</h2>
+  <div class="cg c2" style="margin-top:14px">
+    <div class="cd">
+      <div class="cd-title">A. 상급 문장 만들기</div>
+      <div class="chk-g">
+        <label class="chk"><input type="checkbox"/><span>도입부에 <b>역량/직책</b> 명시가 있는가</span></label>
+        <label class="chk"><input type="checkbox"/><span>영어 능력이 <b>4분해</b>(발음/유창성/어휘·구문/매체)로 서술되었는가</span></label>
+        <label class="chk"><input type="checkbox"/><span><b>객관 근거</b>(선정/동료평가/박수) 최소 1개 포함</span></label>
+        <label class="chk"><input type="checkbox"/><span><b>태도 관찰</b> 내용이 반영되었는가</span></label>
+        <label class="chk"><input type="checkbox"/><span>"~했으나" <b>반전 구조</b>가 적절히 사용되었는가</span></label>
+        <label class="chk"><input type="checkbox"/><span><b style="color:var(--red)">✦</b> 협업·소통(7) 지표 대응 에피소드가 있는가</span></label>
+      </div>
+    </div>
+    <div class="cd">
+      <div class="cd-title">B. 평가 기준 연결</div>
+      <div class="chk-g">
+        <label class="chk"><input type="checkbox"/><span>학업태도: "적극 참여"+"수업 참여도" 표현</span></label>
+        <label class="chk"><input type="checkbox"/><span>협업·소통: 모둠 상호작용 장면이 구체적으로 기록</span></label>
+        <label class="chk"><input type="checkbox"/><span>나눔·배려: 친구 돕기/경청 등 배려 행동 장면</span></label>
+        <label class="chk"><input type="checkbox"/><span>진로탐색: 자기PR에서 진로 연결 문장이 있는가</span></label>
+        <label class="chk"><input type="checkbox"/><span><b style="color:var(--red)">✦</b> 자기평가·동료평가 내용이 세특에 반영되었는가</span></label>
+        <label class="chk"><input type="checkbox"/><span><b style="color:var(--red)">✦</b> 3대 역량 중 학업+공동체 태그되는가</span></label>
+      </div>
+    </div>
+  </div>
+  <div class="co co-accent" style="margin-top:12px"><b>현장 한 줄:</b> 영어 세특 = <b>활동(무엇)+태도(어떻게)+근거(객관 증거)+영어 능력 4분해</b>가 한 문장에 다 들어가야 "상급"입니다.</div>
+</section>
+
+</main>
+</div></div>
+
+<footer class="footer"><b>김휘창입시컨설팅 · HiFive AI</b> · 107개 평가항목 기반<br/>영어(영어회화) 우수 세특 분석 · 3대 역량 태그 시스템</footer>
+<div class="toast" id="toast">복사 완료</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const copy=t=>navigator.clipboard?navigator.clipboard.writeText(t):Promise.resolve((()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;left:-9999px";document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a)})());
+const bytes=s=>new Blob([s]).size;
+let toastT;function toast(m){const e=$("toast");e.textContent=m;e.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove("show"),1400)}
+
+const ST=[
+{id:"A",level:"상",title:"학생 A — 최상위 (종합 우수형)",meta:"수행1:상 / 태도1:상 / 수행2:상 / 태도2:상",
+text:"평소 영어 시간에 수업 참여도가 높은 학생으로 의사소통능력이 뛰어남. 한국문화와 영미문화의 차이점을 설명하는 모둠활동에서 리더로 활동하며 논리적인 발표를 수행함. 특히, 한국에서 선물을 받았을 때 주로 쓰는 표현과 영미문화권 사람들이 선물을 받았을 때 반응의 차이를 재미있는 짧은 연극으로 만들어 창의적인 발표 구성 능력을 보여줌. 영미문화권에 대한 깊이 있는 관심과 자료 조사를 토대로 문화권마다 독특한 차이가 나는 이유를 역사적 측면과 언어가 가진 특징의 차이를 통해 보여주어 학급 친구들의 이해를 도움. 영어로 말할 때 발화 속도가 적정하고 발음이 알아듣기 좋으며 사용하는 어휘와 구문의 수준이 높고 적절한 시각 자료를 활용하여 청중들의 관심과 집중도를 높임. 영어로 자기를 소개하고 광고하기 활동에서 2분 동안 자신의 특징을 명료하게 표현하였고 원어민처럼 정확한 발음으로 어법적으로 유려한 구문을 구사하였으며 자신감 있는 목소리로 발표를 진행해 큰 박수를 받음. 사후 학급평가에서 '오늘의 발표 왕'으로 선정되었고 탁월한 영어 발표 전달력을 보여줌.",
+keys:"의사소통능력 / 리더 / 역사·언어학적 분석 / 시각자료 / 원어민 발음 / 유려한 구문",att:"수업 참여도 높음, 리더 활동",ev:"'오늘의 발표 왕' 선정"},
+{id:"B",level:"상",title:"학생 B — 상위 (진로 연결형)",meta:"수행1:상 / 태도1:상 / 수행2:상 / 태도2:상",
+text:"2학기 영어 수업 시간 학습 부장으로 활동함. 한국과 영미문화의 차이점을 설명하는 모둠활동에서 가장 인상 깊은 발표로 '문화 이해 마스터'로 선정됨. 모둠 구성원들과 함께 한국 문화의 특징을 영어로 발표하고 그와 비교되는 영미문화권의 특징을 광고 형식으로 제작하였으며 자신이 미국인이라는 가정 하에 유창한 발표 능력과 연기력을 보여줘 학급 친구들에게 박수를 받음. 발표 도중 발표 내용을 잊고 당황한 친구에게 내용을 작게 말해주는 등 같은 모둠 구성원들의 발표 부분 준비를 사전에 도와주었다는 사실을 확인할 수 있었음. 모둠 발표 이후 자기 평가를 통해 '영문학'을 전공하고 싶은 계기가 되었다는 의견을 써서 제출함. 영어로 자기를 소개하고 광고하기 활동에서 미래의 영문학자로 자신을 소개하고 두꺼운 영문학 책을 직접 들고 나와 공부에 대한 열정을 보여줌. 상당히 고급 어휘를 사용해 발표 내용을 구성했고, 다양한 영어 구문을 활용해 자신을 광고해 다른 학생들에게 발표를 어떻게 준비해야 하는지 롤 모델이 되어줌.",
+keys:"학습부장 / 광고 형식 / 배려 에피소드 / 영문학 진로 / 고급 어휘·구문",att:"당황한 친구 지원(배려), 모둠 준비 도움",ev:"'문화 이해 마스터' 선정, 롤 모델"},
+{id:"C",level:"중",title:"학생 C — 중상위 (태도 우수형)",meta:"수행1:중 / 태도1:상 / 수행2:중 / 태도2:상",
+text:"한국과 영미문화의 차이점을 설명하는 모둠활동에서 한국 문화를 설명하는 역할을 맡아 성실하게 수행함. 발음이 다소 부정확한 경우도 있었으나 목소리에 자신감이 있고 중요한 단어를 크게 말하는 습관이 있어 학생들의 흥미와 집중을 순간적으로 끌어올리는 역할을 함. 교환학생의 모습을 연기하며 영미문화에 대해 꾸준히 배워나가겠다는 다짐을 모둠 발표 마지막에 큰 소리로 말해 학급 학생들에게 깊은 인상을 남김. 모둠의 연극 구성에 항상 성실하게 참여해 동료 사후평가에서 협력적 태도 부분에서 구성원 중 가장 높은 점수를 얻음. 영어로 자기를 소개하고 광고하기 활동에서 자신이 영어로 소개를 하는 것 자체가 힘든 과제였지만 영어로 말하고 있는 순간 자체가 소중하다는 인상적인 도입부를 구성함. 영어 발표가 두려웠지만 앞으로는 더욱 영어를 좋아하고 노력하겠다는 결심을 말해 학급 친구들과 영어교사에게 감동을 줌.",
+keys:"발음 약점→강조 습관 / 교환학생 연기 / 결심·성장 서사",att:"연극 구성 성실, 협력 태도 우수",ev:"동료평가 협력 태도 최고점"},
+{id:"D",level:"중",title:"학생 D — 중위 (개성 부각형)",meta:"수행1:중 / 태도1:중 / 수행2:중 / 태도2:중",
+text:"한국과 영미문화의 차이점을 설명하는 모둠활동에서 묵묵히 성실하게 참여하는 학생임. 한국과 영미문화의 복식 문화 차이점을 조사해 발표에 기여함. 특히 한국의 한복과 영미문화권의 드레스 문화의 차이를 비교하면서 복식이 사회적 계급과 결혼 문화에 어떻게 반영되는지 설명함. 발표에 앞서 자료 조사 과정에서 실제 결혼식 사진 자료를 수집해 모둠 활동에 제공했고, 모둠 발표 내용이 풍부해지는 데 기여함. 영어로 자기를 소개하고 광고하기 활동에서 준비한 영어 원고를 읽으며 발표했으며, 발음이나 발화 속도에 부족한 부분이 있었으나 끝까지 발표를 완성하고자 하는 태도를 보여줌. 발표 내용 중 자신의 장점을 광고하는 부분에서 '나는 커피를 좋아하는 사람이다'라는 문장을 이용해 자신을 커피 브랜드처럼 표현하는 재치를 보여 학급 친구들의 웃음을 자아냄.",
+keys:"복식 문화 비교 / 자료 수집(사진) / 재치(비유)",att:"묵묵히 성실, 끝까지 완성",ev:"학급 반응(웃음) — 간접 근거"},
+{id:"E",level:"하",title:"학생 E — 하위 (성장·노력형)",meta:"수행1:하 / 태도1:상 / 수행2:하 / 태도2:상",
+text:"수업 시간에 적극적인 자세로 필기를 자세히 하는 착실한 학생임. 한국과 영미문화의 차이점을 설명하는 모둠활동에서 맡은 역할은 미흡했으나 모둠 구성원들의 발표를 경청하며 발표의 흐름을 끊지 않기 위해 노력함. 발표 자료를 만들 때 자신이 맡은 부분을 완성하지 못했지만, 모둠 활동 이후 자신의 부족한 점을 반성하고 다음에는 더 열심히 준비하겠다는 태도를 보여 긍정적인 모습을 보임. 영어로 자기를 소개하고 광고하기 활동에서 유창성에 부족함이 있었고 쉬운 어휘들만 사용했으나, 발표를 끝까지 완성하고자 하는 태도를 보여줌. 발표 후 자신의 부족한 점을 인정하며 앞으로 영어 발표를 더 잘하고 싶다는 각오를 밝힘.",
+keys:"부족→반성→각오 / 경청 / 끝까지 완성",att:"적극 필기, 경청, 긍정 태도",ev:"반성문/각오(자기평가) — 내부"},
+{id:"F",level:"하",title:"학생 F — 하위 (잠재력 부각형)",meta:"수행1:하 / 태도1:중 / 수행2:하 / 태도2:중",
+text:"한국과 영미문화의 차이점을 설명하는 모둠활동에서 영어로 발표하는 것에 어려움을 보이는 학생이었지만 맡은 부분을 준비하기 위해 노력함. 발표 중 발음과 문장 구성에서 미숙한 점이 있었으나, 준비한 내용을 끝까지 전달하려는 태도를 보임. 발표 이후 스스로 영미문화권에 대한 이해가 부족함을 깨닫고 관련 자료를 더 찾아보고 싶다는 의지를 밝힘. 영어로 자기를 소개하고 광고하기 활동에서 원고를 보며 발표했으며 발표 도중 문장이 끊어지는 경우도 있었지만, 끝까지 발표를 마치고자 하는 성실함을 보여줌. 발표 이후 영어 실력을 향상시키기 위해 노력하겠다는 계획을 세워 제출함.",
+keys:"어려움→노력→의지 / 계획 제출",att:"끝까지 발표, 성실함",ev:"향상 계획 제출(구체 행동)"}
+];
+
+/* Student selector */
+function populateStu(){
+  const fv=$("lvlFilter").value;const sel=$("stuSel");sel.innerHTML="";
+  const f=ST.filter(s=>fv==="all"||s.level===fv);
+  f.forEach(s=>{const o=document.createElement("option");o.value=s.id;o.textContent=`학생 ${s.id} (${s.level}) — ${s.title.replace(/^학생 [A-F] — /,"")}`;sel.appendChild(o)});
+  if(f.length)renderStu(f[0].id);
+}
+function renderStu(id){
+  const s=ST.find(x=>x.id===(id||$("stuSel").value));if(!s)return;
+  $("stuSel").value=s.id;
+  const bc=s.level==="상"?"b-green":s.level==="중"?"b-accent":"b-orange";
+  $("stuMeta").innerHTML=`<span class="badge ${bc}">${s.level}</span> <b>${s.title}</b> <span style="color:var(--muted);font-size:11px">${s.meta}</span>`;
+  $("stuText").textContent=s.text;$("stuKeys").textContent=s.keys;$("stuAtt").textContent=s.att;$("stuEv").textContent=s.ev;
+}
+$("lvlFilter").addEventListener("change",populateStu);
+$("stuSel").addEventListener("change",()=>renderStu());
+$("btnCopyEx").addEventListener("click",async()=>{await copy($("stuText").textContent.trim());toast("원문 복사 완료")});
+populateStu();
+
+/* Wizard */
+function buildIntro(lv,mode){
+  const m={상:{역량:"수업 참여도가 높고 의사소통능력이 뛰어난 학생으로",직책:"수업 시간에 학급 내 역할을 맡아 주도적으로 활동한 학생으로",태도:"수업에 성실하게 임하며 적극적인 태도를 보이는 학생으로",반전:"영어 말하기에서 부담을 느끼는 부분이 있었으나 이를 극복하려는 의지가 돋보인 학생으로"},중:{역량:"영어 의사소통 활동에 꾸준히 참여하며 표현력을 확장해 온 학생으로",직책:"모둠 활동에서 맡은 역할을 성실히 수행한 학생으로",태도:"활동 과정에서 성실함과 책임감을 바탕으로 참여한 학생으로",반전:"발음·유창성에서 아쉬움이 있었으나 노력으로 보완하려는 태도가 돋보인 학생으로"},하:{역량:"영어 활동에 도전하며 성장 가능성을 보여준 학생으로",직책:"모둠 활동에서 맡은 부분을 완성하려 노력한 학생으로",태도:"수업 시간 필기와 경청 등 기본 학습태도가 안정적인 학생으로",반전:"영어 발표에 어려움을 보였으나 끝까지 완수하려는 성실함이 돋보인 학생으로"}};
+  return(m[lv]&&m[lv][mode])||"영어 활동에 참여한 학생으로";
+}
+function buildSkill(lv,u){if(u)return`영어 발표에서 ${u} 등 영어 의사소통 역량이 드러남.`;if(lv==="상")return"발화 속도와 발음이 안정적이며 어휘·구문 수준이 높고 시각 자료를 적절히 활용하여 전달력이 뛰어남.";if(lv==="중")return"발음과 속도에서 일부 아쉬움이 있었으나 자신감 있는 목소리와 핵심어 강조로 의미 전달이 비교적 명확함.";return"유창성에 부족함이 있었으나 발표를 끝까지 완성하고자 하는 태도를 유지하며 개선 의지를 보여줌."}
+function buildClosing(lv){if(lv==="상")return"이를 통해 탁월한 영어 발표 전달력과 학습역량을 확인할 수 있음.";if(lv==="중")return"활동을 통해 영어 의사소통에 대한 자신감과 성장을 보여줌.";return"부족한 점을 인식하고 향후 개선 계획을 세우는 등 성장 가능성이 확인됨."}
+
+function generateDraft(){
+  const lv=$("wizLevel").value,intro=$("wizIntro").value;
+  const t1=($("wizTask1").value||"").trim(),t2=($("wizTask2").value||"").trim();
+  const att=($("wizAtt").value||"").trim(),ev=($("wizEv").value||"").trim(),sk=($("wizSkill").value||"").trim();
+  const introL=buildIntro(lv,intro);const skL=buildSkill(lv,sk);
+  const evL=ev?`사후 평가에서 ${ev}으로(로) 확인되는 등 객관적 근거가 뒷받침됨.`:"";
+  const attL=att?`활동 과정에서 ${att} 등 공동체역량이 드러남.`:"";
+  const t1L=t1?`한국과 영미문화의 차이점을 다루는 모둠활동에서 ${t1} 방식으로 발표에 기여함.`:"한국과 영미문화의 차이점을 다루는 모둠활동에 참여함.";
+  const t2L=t2?`영어로 자기를 소개하고 광고하기 활동에서 ${t2} 방식으로 자기표현 역량을 보여줌.`:"영어로 자기를 소개하고 광고하기 활동에 참여함.";
+  const closing=buildClosing(lv);
+  return[introL,t1L,attL,t2L,skL,evL,closing].filter(Boolean).join(" ");
+}
+
+function counts(){const t=$("wizOut").value||"";$("charCount").textContent=t.length+"자";$("byteCount").textContent=bytes(t)+"B"}
+function tagAnalyze(t){
+  const kw={학업:["이해","활용","탐구","발표","설명","표현","구문","어휘","발음","유창","전달","역량","능력","분석","자료","구성","명료","논리","수행","높"],진로:["진로","전공","관심","영문학","계기","희망","비전","미래","계획","꿈"],공동체:["배려","협력","도움","친구","모둠","소통","참여","함께","적극","성실","경청","협업","리더","역할","구성원","동료","박수"]};
+  let s={};for(const k in kw){s[k]=0;kw[k].forEach(w=>{if(t.includes(w))s[k]++})}
+  const mx=Math.max(s.학업,s.진로,s.공동체,1);
+  return{학업:Math.round(s.학업/mx*100),진로:Math.round(s.진로/mx*100),공동체:Math.round(s.공동체/mx*100)};
+}
+function updateTags(){const t=$("wizOut").value||"";const c=tagAnalyze(t);$("m-학업").style.width=c.학업+"%";$("m-진로").style.width=c.진로+"%";$("m-공동체").style.width=c.공동체+"%";const f=[];if(c.학업>30)f.push("학업");if(c.진로>30)f.push("진로");if(c.공동체>30)f.push("공동체");$("tagMsg").textContent=f.length?`감지: ${f.join(", ")}`:"역량 키워드 미감지"}
+function checkGood(){const t=$("wizOut").value||"";
+  const r=[[/(뛰어남|부장|리더|주도|역할을 맡)/.test(t),"① 도입부(역량/직책)"],[/(발음|유창|어휘|구문|전달|속도|시각|매체)/.test(t),"② 영어능력 4분해"],[/(선정|동료|평가|최고점|박수|인상|감동)/.test(t),"③ 객관 근거"],[/(배려|도움|경청|성실|참여|협력|태도)/.test(t),"④ 태도·배려"]];
+  r.forEach(([ok,lbl],i)=>{const el=$("gc"+(i+1));el.textContent=`${lbl} ${ok?"✓":"—"}`;el.className=ok?"ok":""})}
+function genInterview(){
+  const t1=($("wizTask1").value||"").trim(),t2=($("wizTask2").value||"").trim();
+  const topic=t1||"한국문화와 영미문화 차이 발표";
+  $("iq1").textContent=`"${topic}에서 이 주제를 선택한 이유는? 문화 차이에 관심을 갖게 된 계기는?"`;$("iq1").style.color="var(--text)";
+  $("iq2").textContent=t2?`"자기PR 발표를 준비하면서 가장 어려웠던 점과 극복 방법은?"`:`"영어 발표 준비 과정에서 가장 어려웠던 점과 해결 방법은?"`;$("iq2").style.color="var(--text)";
+  $("iq3").textContent=`"이 활동을 통해 영어 의사소통에 대한 생각이 어떻게 변했나요? 후속 계획은?"`;$("iq3").style.color="var(--text)";
+}
+function refresh(){counts();updateTags();checkGood()}
+
+$("btnGenWiz").addEventListener("click",()=>{$("wizOut").value=generateDraft();refresh();genInterview();toast("문장 생성 완료")});
+$("wizOut").addEventListener("input",refresh);
+$("btnCopyWiz").addEventListener("click",async()=>{const t=$("wizOut").value||"";if(!t.trim())return toast("먼저 문장 생성");await copy(t);toast("복사 완료")});
+$("btnResetWiz").addEventListener("click",()=>{["wizTask1","wizTask2","wizAtt","wizEv","wizSkill","wizOut"].forEach(id=>$(id).value="");$("wizLevel").value="상";$("wizIntro").value="역량";refresh();toast("초기화")});
+$("btnCopySummary").addEventListener("click",async()=>{await copy("[영어 세특 핵심 요약]\n- 수행1: 한국vs영미문화 비교(모둠)+태도관찰\n- 수행2: 영어 자기PR(개인)+태도관찰\n- 결정타: 태도관찰(상/중)이 세특 톤을 바꿈\n- 반전 구조: 한계→행동→변화 3단계\n- 영어능력 4분해: 발음/유창성/어휘·구문/전달·매체\n- 10개 지표: 협업·소통(7)·학업태도(2)·나눔·배려(8) = 3개 '강'\n- 협업·소통 5과목 중 유일 '강' = 영어 고유 강점\n- 면접: 동기→과정→성찰 3단 구조");toast("요약 복사 완료")});
+
+document.querySelectorAll(".chk input").forEach(cb=>{cb.addEventListener("change",function(){this.closest(".chk").classList.toggle("on",this.checked)})});
+(function(){const r=new URLSearchParams(location.search).get("return");if(r)$("backToMain").href=decodeURIComponent(r)})();
+const secs=document.querySelectorAll("[id^='sec-']");const navLinks=document.querySelectorAll(".side-nav a");
+window.addEventListener("scroll",()=>{let c="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)c=s.id});navLinks.forEach(a=>{a.classList.toggle("on",a.getAttribute("href")==="#"+c)})},{passive:true});
+counts();
+</script>
+</body>
+</html>

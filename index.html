@@ -1,0 +1,327 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>김휘창입시컨설팅 · 학생부 우수세특 알고리즘 분석</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet"/><style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F5F4F2;--card:#FFFFFF;--card-alt:#FAFAF8;--border:#DDD8D2;--border-light:#EDE9E4;--text:#1E1E1E;--sub:#555048;--muted:#8A8478;--accent:#3A3A3A;--accent-hover:#222;--accent-bg:#F0EFED;--accent-border:#CCC8C2;--green:#2A7B4F;--green-bg:#EBF5F0;--green-border:#B0D8C2;--shadow-sm:0 1px 2px rgba(30,30,30,.04);--shadow:0 1px 3px rgba(30,30,30,.06),0 6px 16px rgba(30,30,30,.04);--r:14px;--r-sm:10px;--r-xs:7px;
+--국어:#B8722D;--국어bg:#FDF5EB;--국어bd:#EECFA0;--수학:#2E5CB8;--수학bg:#EBF0FA;--수학bd:#A8B8E0;--영어:#6B4FA0;--영어bg:#F3F0FA;--영어bd:#C0B0E0;--사회:#357A50;--사회bg:#EBF5F0;--사회bd:#B0D8C2;--과학:#B54040;--과학bg:#FDECEC;--과학bd:#E8AAAA;
+--susi:#10B981;--susi-bg:#D1FAE5;--jeongsi:#EC4899;--jeongsi-bg:#FCE7F3;--hakbu:#F59E0B;--hakbu-bg:#FEF3C7;--intv:#8B5CF6;--intv-bg:#EDE9FE}
+html{scroll-behavior:smooth;font-family:'Noto Sans KR',sans-serif}body{background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+@media print{.no-print{display:none!important}body{background:#fff!important}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topbar{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:14px}.logo-icon{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,#3A3A3A,#1E1E1E);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800;letter-spacing:-.5px}.logo small{font-size:11px;color:var(--muted);display:block;margin-bottom:1px}.logo strong{font-size:17px;font-weight:800;letter-spacing:.3px}
+.top-nav{display:flex;gap:2px;align-items:center}@media(max-width:700px){.top-nav{display:none}}.top-nav a{padding:7px 12px;border-radius:var(--r-xs);font-size:12.5px;font-weight:500;color:var(--sub);text-decoration:none;transition:all .12s}.top-nav a:hover{background:var(--accent-bg);color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r-xs);font-size:12.5px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;transition:all .15s;text-decoration:none}.btn:hover{background:#EEEBE6}.btn-dark{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-dark:hover{background:var(--accent-hover)}.btn-sm{padding:5px 11px;font-size:11.5px}
+.hero{background:linear-gradient(135deg,#F0EDE8,#E8E4DD 30%,#E2DDD5 60%,#E8E4DD);border:1px solid #D0C8BE;border-radius:18px;padding:40px;margin:24px 0 28px;position:relative;overflow:hidden;background-size:200% 200%;animation:heroGrad 8s ease infinite}
+@keyframes heroGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(58,58,58,.06),transparent 70%);border-radius:50%;animation:heroOrb1 12s ease-in-out infinite}.hero::after{content:'';position:absolute;left:-60px;bottom:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(42,123,79,.06),transparent 70%);border-radius:50%;animation:heroOrb2 15s ease-in-out infinite}
+@keyframes heroOrb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.15)}}
+@keyframes heroOrb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,-25px) scale(1.1)}}
+.hero-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-tag{display:inline-flex;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(58,58,58,.07);border:1px solid rgba(58,58,58,.12);color:var(--accent);margin-bottom:16px;position:relative;z-index:1}
+.hero h1{font-family:'Nanum Myeongjo',serif;font-size:28px;font-weight:800;line-height:1.45;color:#1A1A1A;position:relative;z-index:1}@media(max-width:640px){.hero h1{font-size:22px}}
+.hero p{margin-top:12px;font-size:14px;color:var(--sub);max-width:640px;line-height:1.9;position:relative;z-index:1}
+.hero-actions{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.sec{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:22px}.sec h2{font-size:18px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}.sec-sub{font-size:13px;color:var(--sub);margin-bottom:18px}
+.cg{display:grid;gap:12px;margin-top:14px}.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.c5{grid-template-columns:repeat(5,1fr)}@media(max-width:860px){.c4,.c5{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.c2,.c3,.c4,.c5{grid-template-columns:1fr}}
+.cd{background:var(--card-alt);border:1px solid var(--border);border-radius:var(--r-sm);padding:18px;transition:box-shadow .2s}.cd:hover{box-shadow:var(--shadow)}.cd-title{font-size:13.5px;font-weight:700;margin-bottom:6px}.cd-step{font-size:10.5px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.dom{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:20px;position:relative;overflow:hidden;transition:box-shadow .2s}.dom:hover{box-shadow:var(--shadow)}.dom::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.dom.susi::before{background:linear-gradient(90deg,#10B981,#34D399)}.dom.jeongsi::before{background:linear-gradient(90deg,#EC4899,#F472B6)}.dom.hakbu::before{background:linear-gradient(90deg,#F59E0B,#FBBF24)}.dom.intv::before{background:linear-gradient(90deg,#8B5CF6,#A78BFA)}
+.dom-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}.dom-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.dom.susi .dom-icon{background:var(--susi-bg)}.dom.jeongsi .dom-icon{background:var(--jeongsi-bg)}.dom.hakbu .dom-icon{background:var(--hakbu-bg)}.dom.intv .dom-icon{background:var(--intv-bg)}
+.dom-score{text-align:right}.dom-score .sv{font-size:15px;font-weight:800}.dom-score .sg{font-size:10px;color:var(--muted)}
+.dom.susi .sv{color:var(--susi)}.dom.jeongsi .sv{color:var(--jeongsi)}.dom.hakbu .sv{color:var(--hakbu)}.dom.intv .sv{color:var(--intv)}
+.dom h3{font-size:14px;font-weight:700;margin-bottom:2px}.dom-period{font-size:10.5px;color:var(--muted);margin-bottom:6px}.dom-desc{font-size:11.5px;color:var(--sub);line-height:1.65;margin-bottom:10px}
+.dom-feat{list-style:none;padding:0}.dom-feat li{display:flex;align-items:flex-start;gap:5px;font-size:11px;color:var(--sub);padding:4px 0;border-top:1px solid var(--border-light)}.dom-feat li:first-child{border-top:none}.dom-feat .ck{color:var(--green);font-weight:700;flex-shrink:0}
+.subj{display:block;text-decoration:none;color:var(--text);background:var(--card);border:2px solid var(--border);border-radius:var(--r);padding:22px;transition:all .2s;position:relative;overflow:hidden}.subj:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.subj .s-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;margin-bottom:12px}.subj .s-tag{font-size:10px;font-weight:600;margin-bottom:6px}.subj .s-name{font-family:'Nanum Myeongjo',serif;font-size:18px;font-weight:800;margin-bottom:4px}.subj .s-desc{font-size:12px;color:var(--sub);line-height:1.7;margin-bottom:10px}.subj .s-meta{display:flex;flex-wrap:wrap;gap:4px}.s-badge{display:inline-flex;padding:2px 8px;border-radius:14px;font-size:10px;font-weight:600}
+.subj .s-arrow{position:absolute;right:18px;top:18px;width:28px;height:28px;border-radius:7px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);transition:all .2s}.subj:hover .s-arrow{background:var(--accent);color:#fff}
+.hi-bar{background:linear-gradient(135deg,#2A2A2A,#1A1A1A);border-radius:var(--r);padding:30px;color:#fff;margin-bottom:22px;position:relative;overflow:hidden}.hi-bar::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hi-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}@media(max-width:700px){.hi-inner{grid-template-columns:1fr}}
+.hi-bar h3{font-size:17px;font-weight:700;line-height:1.55;margin-bottom:12px}.hi-bar h3 em{font-style:normal;color:#FBBF24}
+.hi-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}.hi-bdg{padding:5px 13px;border-radius:15px;font-size:10.5px;font-weight:600;color:#fff}.hi-bdg.r{background:linear-gradient(135deg,#DC2626,#EF4444)}.hi-bdg.g{background:linear-gradient(135deg,#4B5563,#6B7280)}
+.hi-list{list-style:none;padding:0}.hi-list li{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px;color:rgba(255,255,255,.88)}.hi-ico{width:20px;height:20px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#FBBF24;flex-shrink:0}
+.hi-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hi-stat{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-sm);padding:16px;text-align:center}.hi-stat .sv{font-size:24px;font-weight:800;color:#FBBF24}.hi-stat .sl{font-size:10px;color:rgba(255,255,255,.6);margin-top:2px}
+.co{padding:14px 18px;border-radius:var(--r-sm);margin-top:14px;font-size:12.5px;line-height:1.85}.co-accent{background:var(--accent-bg);border:1px solid var(--accent-border)}.co b{font-weight:700}
+.badge{display:inline-flex;padding:3px 9px;border-radius:16px;font-size:10.5px;font-weight:600;background:var(--accent-bg);border:1px solid var(--accent-border);color:var(--accent)}
+.stat{text-align:center;padding:16px 10px;background:var(--card-alt);border:1px solid var(--border-light);border-radius:var(--r-sm)}.stat .sv{font-size:22px;font-weight:800}.stat .sl{font-size:10.5px;color:var(--muted);margin-top:2px}
+.flow-step{position:relative;padding-left:32px;padding-bottom:22px;border-left:2px solid var(--border)}.flow-step:last-child{border-left-color:transparent;padding-bottom:0}.flow-dot{position:absolute;left:-8px;top:2px;width:14px;height:14px;border-radius:50%;border:3px solid var(--accent);background:var(--card)}.flow-step h4{font-size:13.5px;font-weight:700;margin-bottom:4px}.flow-step p{font-size:12.5px;color:var(--sub);line-height:1.8}
+.cta-box{background:linear-gradient(135deg,#E8E4DD,#DDD8D0 60%,#D5CFC5);border:2px solid #C5BEB4;border-radius:18px;padding:36px;margin-bottom:28px}.cta-box h3{font-family:'Nanum Myeongjo',serif;font-size:22px;font-weight:800;line-height:1.5;color:#1A1A1A}
+.free-banner{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);border-radius:18px;padding:36px 32px;margin-bottom:22px;color:#fff;position:relative;overflow:hidden}.free-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}.free-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}@media(max-width:800px){.free-inner{grid-template-columns:1fr}}
+.free-tag{display:inline-flex;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;background:rgba(251,191,36,.18);border:1px solid rgba(251,191,36,.3);color:#FBBF24;margin-bottom:14px}
+.free-title{font-family:'Nanum Myeongjo',serif;font-size:24px;font-weight:800;line-height:1.55;margin-bottom:12px}@media(max-width:640px){.free-title{font-size:20px}}
+.free-desc{font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.85;margin-bottom:20px}.free-desc b{color:#fff;font-weight:600}
+.free-points{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}.free-pt{display:flex;gap:12px;align-items:flex-start}.free-pt-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}.free-pt b{font-size:13px;font-weight:700;color:#fff}.free-pt span{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.5}
+.free-actions{display:flex;gap:10px;flex-wrap:wrap}.free-actions .btn-dark{background:#FBBF24;color:#1a1a2e;border-color:#FBBF24}.free-actions .btn-dark:hover{background:#F59E0B}.free-actions .btn{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}.free-actions .btn:hover{background:rgba(255,255,255,.18)}
+.free-right{display:flex;align-items:start}.free-card{background:rgba(255,255,255,.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;width:100%}.free-card-head{font-size:14px;font-weight:700;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1)}.free-card-list{list-style:none;padding:0}.free-card-list li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12.5px;color:rgba(255,255,255,.85)}.ck-g{color:#34D399;font-weight:700;font-size:13px;flex-shrink:0}.free-card-foot{margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.5);text-align:center}
+.eval-preview{background:var(--card);border:2px solid var(--border);border-radius:var(--r);padding:18px;margin-top:18px}.ep-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}.ep-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;background:#EBF0FA;color:#2E5CB8;border:1px solid #A8B8E0}.ep-title{font-size:13px;font-weight:700;color:var(--text)}
+.ep-ring-row{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center}@media(max-width:640px){.ep-ring-row{grid-template-columns:80px 1fr}}.ep-ring{width:100px;height:100px}@media(max-width:640px){.ep-ring{width:80px;height:80px}}.ep-ring svg{width:100%;height:100%}
+.ep-cats{display:flex;flex-direction:column;gap:10px}.ep-cat-head{display:flex;align-items:center;gap:6px;margin-bottom:3px}.ep-cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.ep-cat-name{font-size:12px;font-weight:700;color:var(--text)}.ep-cat-score{margin-left:auto;font-size:11px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.ep-bar{height:7px;background:var(--border-light);border-radius:4px;overflow:hidden}.ep-bar-fill{height:100%;border-radius:4px;transition:width .8s}
+.ep-cat-items{font-size:10px;color:var(--muted);margin-top:2px}
+.ep-note{font-size:10px;color:var(--muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);text-align:center;line-height:1.6}
+.cta-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}@media(max-width:700px){.cta-grid{grid-template-columns:1fr}}
+.footer{border-top:1px solid var(--border);padding:0}.ft-top{display:flex;justify-content:space-between;align-items:center;padding:20px;flex-wrap:wrap;gap:14px}.ft-info{display:flex;align-items:center;gap:16px}.ft-logo{font-size:16px;font-weight:800}.ft-addr{font-size:11.5px;color:var(--sub)}.ft-hours{padding:6px 14px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:var(--r-xs);text-align:center}.ft-hours .lbl{font-size:9.5px;color:var(--muted)}.ft-hours .tm{font-size:13px;font-weight:700}.ft-phone{text-align:right}.ft-phone .lbl{font-size:9.5px;color:var(--muted)}.ft-phone .num{font-size:18px;font-weight:800;color:var(--accent)}.ft-bottom{text-align:center;padding:14px 20px;font-size:11px;color:var(--muted);border-top:1px solid var(--border-light)}
+</style></head><body>
+
+<div class="topbar"><div class="wrap"><div class="topbar-inner">
+<div class="logo"><div class="logo-icon">H5</div><div><small>진로에서 진학까지 · HiFive AI</small><strong>김휘창입시컨설팅</strong></div></div>
+<nav class="top-nav"><a href="#free" style="color:var(--green);font-weight:700">무료자료</a><a href="#manual">사용매뉴얼</a><a href="#consulting">4대 도메인</a><a href="#subjects">과목별 세특</a><a href="#flow">컨설팅 로직</a></nav>
+<div class="no-print" style="display:flex;gap:6px"><a class="btn btn-sm" href="#free" style="background:var(--green-bg);border-color:var(--green-border);color:var(--green)">🎁 무료자료</a><a class="btn btn-dark btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLSduBRbDNO-sJi3betXEVz-42BZLa1OEhjBamJPCRB0m9LKUow/viewform" target="_blank">수시컨설팅 신청</a></div>
+</div></div></div>
+
+<div class="wrap">
+
+<section class="hero" id="top">
+<canvas class="hero-canvas" id="heroParticles"></canvas>
+<div class="hero-tag">🎓 진로에서 진학까지 입시판타곤 · 5과목 우수세특 분석자료 무료 공개</div>
+<h1>고교 3년의 선택이,<br>미래 60년을 결정한다</h1>
+<p>활동 나열이 아니라 <b>우수세특 구조(활동→과정→역량→성장)</b>로 정리하고, 자소서·면접까지 <b>모순 없이 연결</b>하는 프로그램입니다. 지금 5과목 분석자료를 <b>무료</b>로 확인하세요.</p>
+<div class="hero-actions">
+<a class="btn btn-dark" href="#free">🎁 무료 분석자료 보기</a>
+<a class="btn" href="#subjects">과목별 우수세특 시작</a>
+<a class="btn" href="#consulting">4대 도메인 컨설팅</a>
+</div>
+</section>
+
+<section class="free-banner" id="free">
+<div class="free-inner">
+<div class="free-left">
+<div class="free-tag">🎁 무료 공개</div>
+<h2 class="free-title">학생부 우수세특 분석자료,<br>지금 바로 확인하세요</h2>
+<p class="free-desc">입학사정관이 <b>'강'으로 평가하는 세특</b>은 어떤 구조를 가지고 있을까요?<br>국어·수학·영어·사회·과학 5과목의 우수세특을 <b>10개 지표 × 5점 체계</b>로 정밀 분석한 자료를 무료로 공개합니다.</p>
+<div class="free-points">
+<div class="free-pt"><span class="free-pt-icon">📊</span><div><b>과목별 10개 지표 분석</b><br><span>학업성취도·탐구력·전공이수 등 입사관 관점 역량 진단</span></div></div>
+<div class="free-pt"><span class="free-pt-icon">🔗</span><div><b>107개 항목 자동 연결</b><br><span>세특 → 자소서 → 면접까지 하나의 서사로 연결하는 구조</span></div></div>
+<div class="free-pt"><span class="free-pt-icon">🎤</span><div><b>면접 예상질문 자동 생성</b><br><span>세특 내용 기반 꼬리질문·반박질문까지 즉시 확인</span></div></div>
+</div>
+<div class="free-actions">
+<a class="btn btn-dark" href="#subjects" style="font-size:14px;padding:10px 22px">📖 5과목 분석자료 무료 보기</a>
+<a class="btn" href="#consulting" style="font-size:13px">4대 도메인 컨설팅 →</a>
+</div>
+</div>
+<div class="free-right">
+<div class="free-card">
+<div class="free-card-head">무료 분석 포함 내용</div>
+<ul class="free-card-list">
+<li><span class="ck-g">✓</span> 과목별 우수세특 문장 구조 분석</li>
+<li><span class="ck-g">✓</span> 10개 지표 강/중/약 평가표</li>
+<li><span class="ck-g">✓</span> 과목 간 역량 비교 매트릭스</li>
+<li><span class="ck-g">✓</span> 활동→과정→역량→성장 4단 구조</li>
+<li><span class="ck-g">✓</span> 자소서·면접 연결 가이드</li>
+<li><span class="ck-g">✓</span> 면접 예상질문 (과목별 자동)</li>
+</ul>
+<div class="free-card-foot">회원가입 불필요 · 즉시 열람 가능</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="manual">
+<h2>초보자를 위한 사용매뉴얼</h2>
+<p class="sec-sub">처음 오신 분은 아래 순서대로만 진행하면 됩니다. 권장: <b>진단 → 과목별 세특 → 자소서 → 면접</b></p>
+<div class="cg c4">
+<div class="cd"><div class="cd-step">STEP 1</div><div class="cd-title">생기부/성적 현재 위치 고정</div><p style="font-size:12.5px;color:var(--sub)">강점/약점/빈칸 파악, 합격 가능 구간 정리</p></div>
+<div class="cd"><div class="cd-step">STEP 2</div><div class="cd-title">과목별 우수세특 패턴 확인</div><p style="font-size:12.5px;color:var(--sub)">우수 문장 구조 "복제", 내 활동을 같은 구조로 재배치</p></div>
+<div class="cd"><div class="cd-step">STEP 3</div><div class="cd-title">자소서로 서사 연결</div><p style="font-size:12.5px;color:var(--sub)">소재 중복/낭비 제거, 문항별 논리 흐름 완성</p></div>
+<div class="cd"><div class="cd-step">STEP 4</div><div class="cd-title">면접 답변 압축 훈련</div><p style="font-size:12.5px;color:var(--sub)">30초/60초 버전 분리, 꼬리질문 대비 Q/A 구조화</p></div>
+</div>
+<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+<a class="btn btn-dark" href="#subjects">과목별 우수세특 바로가기</a>
+<a class="btn" href="#consulting">4대 도메인 컨설팅</a>
+<a class="btn" href="#flow">컨설팅 로직 보기</a>
+</div>
+</section>
+
+<section class="sec" id="consulting">
+<h2>4대 도메인 통합 컨설팅</h2>
+<p class="sec-sub">학생의 전체 입시 여정을 데이터로 연결하는 유일한 컨설팅 시스템</p>
+<div class="cg c4">
+<div class="dom susi"><div class="dom-head"><div class="dom-icon">📋</div></div><h3>수시 컨설팅</h3><div class="dom-period">고3 | 6월~9월</div><div class="dom-desc">94,285건 데이터 기반 6단계 합격확률 분석으로 최적의 6간 포트폴리오를 설계합니다.</div><ul class="dom-feat"><li><span class="ck">✓</span> 6단계 배치점 보간법 (독자 알고리즘)</li><li><span class="ck">✓</span> 블라인드 경쟁률 분석</li><li><span class="ck">✓</span> 수능최저 충족 시뮬레이션</li><li><span class="ck">✓</span> 25개 AI 프로그램 투입</li></ul></div>
+<div class="dom jeongsi"><div class="dom-head"><div class="dom-icon">🎯</div></div><h3>정시 컨설팅</h3><div class="dom-period">고3 | 12월~1월</div><div class="dom-desc">214개 대학별 고유 환산수식 자동화로 가/나/다군 최적 배치 3개안을 도출합니다.</div><ul class="dom-feat"><li><span class="ck">✓</span> 214개교 환산수식 자동 계산</li><li><span class="ck">✓</span> 탐구 변환표준점수 시뮬레이션</li><li><span class="ck">✓</span> 리스크 성향별 3개안 비교</li><li><span class="ck">✓</span> 전학사/어디가 크로스 체크</li></ul></div>
+<div class="dom hakbu"><div class="dom-head"><div class="dom-icon">📚</div></div><h3>학생부 컨설팅</h3><div class="dom-period">고1~고2 | 장기 관리</div><div class="dom-desc">저서 기반 12지표×5점 체계로 학생부를 AI 분석하고, 성장 서사를 설계합니다.</div><ul class="dom-feat"><li><span class="ck">✓</span> AI 12지표 정밀 평가 (60점 체계)</li><li><span class="ck">✓</span> 세특 소재 추천 엔진</li><li><span class="ck">✓</span> 학기별 성장 트래킹</li><li><span class="ck">✓</span> 수시 컨설팅 자동 연계</li></ul></div>
+<div class="dom intv"><div class="dom-head"><div class="dom-icon">🎤</div></div><h3>면접 컨설팅</h3><div class="dom-period">고3 | 10월~12월</div><div class="dom-desc">학생부 AI 분석 결과를 자동 연동하여 맞춤 예상질문과 스크립트를 생성합니다.</div><ul class="dom-feat"><li><span class="ck">✓</span> AI 예상질문 20~30개 자동 생성</li><li><span class="ck">✓</span> 제시문형/학생부기반형 분리</li><li><span class="ck">✓</span> 실전 모의면접 + 영상 녹화</li><li><span class="ck">✓</span> 학생부 분석 데이터 자동 연동</li></ul></div>
+</div></section>
+
+<div class="hi-bar">
+<div class="hi-inner">
+<div>
+<h3>무료 우수세특 분석 → 생기부 진단 → 컨설팅 완성<br><em>입시에 최적화된 1:1 맞춤 컨설팅</em></h3>
+<div class="hi-badges"><span class="hi-bdg" style="background:linear-gradient(135deg,#10B981,#34D399)">🎁 무료 분석자료</span><span class="hi-bdg r">수시 컨설팅</span><span class="hi-bdg g">정시 컨설팅</span><span class="hi-bdg g">생기부 컨설팅</span><span class="hi-bdg r">면접 컨설팅</span></div>
+<ul class="hi-list"><li><span class="hi-ico">✓</span>입시의 성공과 실패, 그 차이는 '준비'에 있다!</li><li><span class="hi-ico">✓</span>변화하는 입시환경, 이제는 전략이 필수다!</li><li><span class="hi-ico">✓</span>입시는 단순한 지식이 아니라, 전략이다!</li></ul>
+</div>
+<div class="hi-stats"><div class="hi-stat"><div class="sv">30년</div><div class="sl">입시 컨설팅 경력</div></div><div class="hi-stat"><div class="sv">94,285</div><div class="sl">데이터 기반 분석</div></div><div class="hi-stat"><div class="sv">250+</div><div class="sl">2026 합격자</div></div><div class="hi-stat"><div class="sv">25개</div><div class="sl">AI 프로그램 운영</div></div></div>
+</div></div>
+
+<section class="sec" id="programs">
+<h2>HiFive AI 기반 5대 프로그램</h2>
+<p class="sec-sub">필요한 프로그램은 개별 상세페이지로 확장 가능합니다.</p>
+<div class="cg c5">
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-step">01</div><div class="cd-title">성향·지능 분석</div><p style="font-size:12px;color:var(--sub)">학생 학습 방식 고정, 강점/약점 요약, 동기 설계</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-step">02</div><div class="cd-title">생기부 AI 분석</div><p style="font-size:12px;color:var(--sub)">입학사정관 관점 진단, 학업/진로/공동체 평가</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-step">03</div><div class="cd-title">수행평가·세특</div><p style="font-size:12px;color:var(--sub)">주제→보고서→세특 자동화, 탐구 주제 추천</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-step">04</div><div class="cd-title">자소서 AI</div><p style="font-size:12px;color:var(--sub)">문항별 서사 설계·교정, 제출형 문장 완성</p></div>
+<div class="cd" style="border-top:3px solid var(--accent)"><div class="cd-step">05</div><div class="cd-title">면접 AI</div><p style="font-size:12px;color:var(--sub)">예상질문·꼬리질문 대비, 실전 Q/A 훈련</p></div>
+</div></section>
+
+<section id="subjects" style="margin-bottom:22px">
+<div style="margin-bottom:14px"><h2 style="font-family:'Nanum Myeongjo',serif;font-size:22px;font-weight:800">과목별 우수세특사례 분석 프로그램</h2><p style="font-size:13px;color:var(--sub);margin-top:4px">과목 카드를 누르면 상세 분석 페이지로 이동합니다.</p></div>
+<div class="cg c4" style="margin-top:0;margin-bottom:18px">
+<div class="stat"><div class="sv">5</div><div class="sl">분석 완료 과목</div></div>
+<div class="stat"><div class="sv">107</div><div class="sl">연결 평가항목</div></div>
+<div class="stat"><div class="sv">3대 역량</div><div class="sl">학업·진로·공동체</div></div>
+<div class="stat"><div class="sv">면접 Q</div><div class="sl">자동 생성</div></div>
+</div>
+<div class="cg c5" style="margin-top:0">
+<a class="subj" href="./국어우수세특.html?return=index.html%23subjects" style="border-color:var(--국어bd)"><div class="s-arrow">→</div><div class="s-icon" style="background:linear-gradient(135deg,#C88540,var(--국어))">國</div><div class="s-tag" style="color:var(--국어)">국어(공통)</div><div class="s-name">논리·해석·서사</div><div class="s-desc">가치관 형성 + 독서 서사. "해석→판단→가치관" 3단계.</div><div class="s-meta"><span class="s-badge" style="background:var(--국어bg);color:var(--국어);border:1px solid var(--국어bd)">10개 중 3개 '강'</span></div></a>
+<a class="subj" href="./수학우수세특.html?return=index.html%23subjects" style="border-color:var(--수학bd)"><div class="s-arrow">→</div><div class="s-icon" style="background:linear-gradient(135deg,#4A78D0,var(--수학))">數</div><div class="s-tag" style="color:var(--수학)">수학(공통)</div><div class="s-name">추론·모델링</div><div class="s-desc">독자적 발견 + 수학 문장. 배점밀도 1.88점 최고.</div><div class="s-meta"><span class="s-badge" style="background:var(--수학bg);color:var(--수학);border:1px solid var(--수학bd)">10개 중 5개 '강'</span></div></a>
+<a class="subj" href="./영어우수세특.html?return=index.html%23subjects" style="border-color:var(--영어bd)"><div class="s-arrow">→</div><div class="s-icon" style="background:linear-gradient(135deg,#8668C0,var(--영어))">英</div><div class="s-tag" style="color:var(--영어)">영어(공통)</div><div class="s-name">소통·협업·문화</div><div class="s-desc">반전 구조 + 영어능력 4분해. 협업·소통 유일 '강'.</div><div class="s-meta"><span class="s-badge" style="background:var(--영어bg);color:var(--영어);border:1px solid var(--영어bd)">10개 중 3개 '강'</span></div></a>
+<a class="subj" href="./사회우수세특.html?return=index.html%23subjects" style="border-color:var(--사회bd)"><div class="s-arrow">→</div><div class="s-icon" style="background:linear-gradient(135deg,#48A06A,var(--사회))">社</div><div class="s-tag" style="color:var(--사회)">사회·문화</div><div class="s-name">비판·공동체</div><div class="s-desc">민주시민의식 + 공동체역량 3지표 모두 '강'(유일).</div><div class="s-meta"><span class="s-badge" style="background:var(--사회bg);color:var(--사회);border:1px solid var(--사회bd)">10개 중 4개 '강'</span></div></a>
+<a class="subj" href="./과학우수세특.html?return=index.html%23subjects" style="border-color:var(--과학bd)"><div class="s-arrow">→</div><div class="s-icon" style="background:linear-gradient(135deg,#D05050,var(--과학))">科</div><div class="s-tag" style="color:var(--과학)">과학(공통/통합)</div><div class="s-name">가설·실험·검증</div><div class="s-desc">탐구력 95% 최고. 6개 '강' = 5과목 중 최고 커버리지.</div><div class="s-meta"><span class="s-badge" style="background:var(--과학bg);color:var(--과학);border:1px solid var(--과학bd)">10개 중 6개 '강'</span></div></a>
+</div>
+<div class="co co-accent" style="margin-top:14px"><b>팁:</b> 과목 상세페이지에서 우수사례를 읽고, "내 활동을 같은 구조로 재배치"한 뒤 자소서/면접으로 연결하세요. 각 페이지에서 <b>107개 항목 연결</b>과 <b>면접 예상 질문</b>까지 확인 가능합니다.</div>
+</section>
+
+<section class="sec" id="flow">
+<h2>컨설팅 진행 로직</h2>
+<p class="sec-sub">"정보"가 아니라 "정리된 기준"으로 올려야 합격 확률이 움직입니다.</p>
+<div class="cg c2">
+<div>
+<div class="flow-step"><div class="flow-dot"></div><h4>STEP 1 · 정밀 진단</h4><p>성적/학생부(능력·태도) 분석, 합격 가능 구간 설정, 빈칸(리스크) 추출</p></div>
+<div class="flow-step"><div class="flow-dot"></div><h4>STEP 2 · 전략 설계</h4><p>수시/정시/전형 유불리 판단, 학기 운영(수행·세특) 설계, "한 줄 컨셉" 확정</p></div>
+<div class="flow-step"><div class="flow-dot"></div><h4>STEP 3 · 콘텐츠 제작</h4><p>과목별 우수세특 패턴 적용, 자소서 문항별 서사 정리, 제출형 문장 다듬기</p></div>
+<div class="flow-step"><div class="flow-dot"></div><h4>STEP 4 · 실전 훈련</h4><p>면접 답변 압축(30초/60초), 꼬리질문/반박 대비, 말의 모순 제거</p></div>
+
+<div class="eval-preview">
+<div class="ep-head"><span class="ep-tag">AI 분석 미리보기</span><span class="ep-title">학생부 종합평가 100점 체계</span></div>
+<div class="ep-ring-row">
+<div class="ep-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="#EDE9E4" stroke-width="10"/><circle cx="60" cy="60" r="50" fill="none" stroke="url(#gRing)" stroke-width="10" stroke-dasharray="274" stroke-dashoffset="36" stroke-linecap="round" transform="rotate(-90 60 60)"/><defs><linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs><text x="60" y="54" text-anchor="middle" fill="#1E1E1E" font-size="26" font-weight="900" font-family="'Noto Sans KR'">87</text><text x="60" y="72" text-anchor="middle" fill="#8A8478" font-size="10" font-family="'Noto Sans KR'">/100점 · A-</text></svg></div>
+<div class="ep-cats">
+<div class="ep-cat"><div class="ep-cat-head"><span class="ep-cat-dot" style="background:#3b82f6"></span><span class="ep-cat-name">학업역량</span><span class="ep-cat-score">35 / 40</span></div><div class="ep-bar"><div class="ep-bar-fill" style="width:87.5%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div><div class="ep-cat-items">학업성취도 · 학업태도 · 탐구력</div></div>
+<div class="ep-cat"><div class="ep-cat-head"><span class="ep-cat-dot" style="background:#8b5cf6"></span><span class="ep-cat-name">진로역량</span><span class="ep-cat-score">29 / 35</span></div><div class="ep-bar"><div class="ep-bar-fill" style="width:82.9%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div><div class="ep-cat-items">전공이수 · 전공성취 · 진로탐색</div></div>
+<div class="ep-cat"><div class="ep-cat-head"><span class="ep-cat-dot" style="background:#10b981"></span><span class="ep-cat-name">공동체역량</span><span class="ep-cat-score">23 / 25</span></div><div class="ep-bar"><div class="ep-bar-fill" style="width:92%;background:linear-gradient(90deg,#10b981,#34d399)"></div></div><div class="ep-cat-items">협업·소통 · 나눔·배려 · 성실성 · 리더십</div></div>
+</div>
+</div>
+<div class="ep-note">※ 위 데이터는 분석 예시입니다. 실제 학생부를 업로드하면 AI가 세부항목별로 정밀 채점합니다.</div>
+</div>
+</div>
+<div>
+<div class="cd" style="background:var(--card);border:2px solid var(--border)">
+<div class="cd-title">5과목 × 10개 지표 — '강' 분포 요약</div>
+<div style="overflow-x:auto;margin-top:10px;border:1px solid var(--border);border-radius:var(--r-sm)"><table style="width:100%;border-collapse:collapse;font-size:12px">
+<thead><tr style="background:#F0EDE8"><th style="padding:8px 10px;text-align:left;font-size:11px;font-weight:700;color:var(--sub);border-bottom:2px solid var(--border)">지표</th><th style="padding:8px 6px;text-align:center;font-size:11px;border-bottom:2px solid var(--border);color:var(--국어)">국어</th><th style="padding:8px 6px;text-align:center;font-size:11px;border-bottom:2px solid var(--border);color:var(--수학)">수학</th><th style="padding:8px 6px;text-align:center;font-size:11px;border-bottom:2px solid var(--border);color:var(--영어)">영어</th><th style="padding:8px 6px;text-align:center;font-size:11px;border-bottom:2px solid var(--border);color:var(--사회)">사회</th><th style="padding:8px 6px;text-align:center;font-size:11px;border-bottom:2px solid var(--border);color:var(--과학)">과학</th></tr></thead>
+<tbody>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">1.학업성취도</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--수학);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">2.학업태도</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--국어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--수학);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">3.탐구력</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--국어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--수학);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--영어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--사회);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">4.전공이수</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--수학);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">5.전공성취</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--수학);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">6.진로탐색</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">7.협업·소통</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--영어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--사회);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--과학);font-weight:700">강</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">8.나눔·배려</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--영어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--사회);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid var(--border-light);font-weight:600">9.성실성</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--국어);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--사회);font-weight:700">강</td><td style="text-align:center;padding:6px;border-bottom:1px solid var(--border-light);color:var(--muted)">중</td></tr>
+<tr><td style="padding:6px 10px;font-weight:600">10.리더십</td><td style="text-align:center;padding:6px;color:var(--muted)">약</td><td style="text-align:center;padding:6px;color:var(--muted)">약</td><td style="text-align:center;padding:6px;color:var(--muted)">약</td><td style="text-align:center;padding:6px;color:var(--muted)">약</td><td style="text-align:center;padding:6px;color:var(--muted)">약</td></tr>
+</tbody>
+<tfoot><tr style="background:#F0EDE8"><td style="padding:8px 10px;font-weight:800;font-size:12px;border-top:2px solid var(--border)">'강' 합계</td><td style="text-align:center;padding:8px 6px;font-weight:800;border-top:2px solid var(--border);color:var(--국어)">3</td><td style="text-align:center;padding:8px 6px;font-weight:800;border-top:2px solid var(--border);color:var(--수학)">5</td><td style="text-align:center;padding:8px 6px;font-weight:800;border-top:2px solid var(--border);color:var(--영어)">3</td><td style="text-align:center;padding:8px 6px;font-weight:800;border-top:2px solid var(--border);color:var(--사회)">4</td><td style="text-align:center;padding:8px 6px;font-weight:800;border-top:2px solid var(--border);color:var(--과학)">6</td></tr></tfoot>
+</table></div>
+<div class="co co-accent" style="font-size:11.5px;margin-top:12px"><b>읽는 법:</b> 탐구력은 5과목 모두 '강'. 학업성취도·전공이수·전공성취는 수학+과학만 '강'. 공동체 3지표(협업·나눔·성실) 모두 '강'은 사회만.</div>
+</div></div></div>
+</section>
+
+<section id="cta">
+<div class="cta-box">
+<div class="cta-grid">
+<div>
+<h3>무료 분석자료로 구조를 파악하고,<br>"정리된 기준"으로 합격을 설계하세요</h3>
+<p style="margin-top:10px;font-size:13.5px;color:var(--sub)">우수세특 구조를 무료로 확인한 뒤, 내 생기부에 같은 구조를 적용하는 1:1 맞춤 컨설팅으로 이어집니다.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+<span class="badge" style="background:var(--green-bg);border-color:var(--green-border);color:var(--green)">🎁 5과목 분석자료 무료</span><span class="badge">✅ 30년 입시 컨설팅 경력</span><span class="badge">✅ 107개 항목 연결</span><span class="badge">✅ 25개 AI 프로그램</span><span class="badge">✅ 면접 질문 자동 생성</span>
+</div>
+</div>
+<div style="min-width:200px">
+<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px">
+<div style="font-size:13px;font-weight:700;margin-bottom:10px">빠른 이동</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<a class="btn" style="justify-content:center;background:var(--green-bg);border-color:var(--green-border);color:var(--green);font-weight:700" href="#subjects">🎁 무료 분석자료 보기</a>
+<a class="btn btn-dark" style="justify-content:center" href="https://docs.google.com/forms/d/e/1FAIpQLSduBRbDNO-sJi3betXEVz-42BZLa1OEhjBamJPCRB0m9LKUow/viewform" target="_blank">📝 수시컨설팅 신청</a>
+<a class="btn" style="justify-content:center" href="https://macedutech.kr/" target="_blank" rel="noopener noreferrer">macedutech.kr 열기</a>
+</div>
+<p style="font-size:10.5px;color:var(--muted);margin-top:8px">※ 수시컨설팅 신청 시 자동 접수 확인 이메일이 발송됩니다</p>
+</div></div>
+</div></div>
+</section>
+
+</div>
+
+<footer class="footer">
+<div class="ft-top wrap">
+<div class="ft-info"><div class="ft-logo">시대학원</div><div class="ft-addr">고양시 덕양구 백양로 51, 8층</div></div>
+<div class="ft-hours"><div class="lbl">방문상담가능</div><div class="tm">13:00~22:00</div></div>
+<div class="ft-phone"><div class="lbl">상담문의 환영</div><div class="num">010-6674-6790</div></div>
+</div>
+<div class="ft-bottom"><b>김휘창입시컨설팅 · HiFive AI</b> · 과목별 우수세특 분석자료 무료 공개 · 학생부 기반 1:1 맞춤 컨설팅 · © 2026</div>
+</footer>
+
+<script>
+(function(){
+const canvas=document.getElementById('heroParticles');
+if(!canvas)return;
+const ctx=canvas.getContext('2d');
+let w,h,particles=[];
+function resize(){
+const hero=canvas.parentElement;
+w=canvas.width=hero.offsetWidth;
+h=canvas.height=hero.offsetHeight;
+}
+function init(){
+resize();
+particles=[];
+const count=Math.floor(w*h/8000);
+for(let i=0;i<count;i++){
+particles.push({
+x:Math.random()*w,y:Math.random()*h,
+r:Math.random()*2.5+1,
+dx:(Math.random()-.5)*.3,
+dy:(Math.random()-.5)-.15,
+o:Math.random()*.18+.04,
+color:['#3A3A3A','#2A7B4F','#2E5CB8','#8B5CF6'][Math.floor(Math.random()*4)]
+});
+}
+}
+function draw(){
+ctx.clearRect(0,0,w,h);
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle=p.color;
+ctx.globalAlpha=p.o;
+ctx.fill();
+p.x+=p.dx;p.y+=p.dy;
+if(p.x<-10)p.x=w+10;
+if(p.x>w+10)p.x=-10;
+if(p.y<-10)p.y=h+10;
+if(p.y>h+10)p.y=-10;
+});
+// connection lines
+for(let i=0;i<particles.length;i++){
+for(let j=i+1;j<particles.length;j++){
+const dx=particles[i].x-particles[j].x;
+const dy=particles[i].y-particles[j].y;
+const dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<100){
+ctx.beginPath();
+ctx.moveTo(particles[i].x,particles[i].y);
+ctx.lineTo(particles[j].x,particles[j].y);
+ctx.strokeStyle='#3A3A3A';
+ctx.globalAlpha=.04*(1-dist/100);
+ctx.lineWidth=.5;
+ctx.stroke();
+}
+}
+}
+ctx.globalAlpha=1;
+requestAnimationFrame(draw);
+}
+init();draw();
+window.addEventListener('resize',()=>{resize();});
+})();
+</script>
+</body></html>
